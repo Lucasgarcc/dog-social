@@ -1,30 +1,37 @@
-.header {
+.Header {
+  width: 100%;
   background-color: #fff;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-}
-
-.headerTitle {
-  margin: 0;
-  color: #333;
-  font-size: 28px;
-  font-weight: bold;
+  max-width: 100%;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  z-index: 100;
 }
 
 .headerNav {
   display: flex;
-  gap: 20px;
-  margin-top: 15px;
+  justify-content: space-between;
+  align-items: center;
+  height: 4rem;
 }
 
-.navLink {
-  text-decoration: none;
-  color: #666;
-  font-weight: 500;
-  transition: color 0.3s;
+.Logo {
+  padding: .5rem 0;
 }
 
-.navLink:hover {
-  color: #007bff;
+.Login {
+  color: var(--color-text);
+  display: flex;
+  justify-content: center;
+  gap: .5rem;
+}
+
+.Login::after{
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 17px;
+  background: url('../../assets/img/usuario.svg') 
+  no-repeat center center;
+  background-size: contain;
 }
