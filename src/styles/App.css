@@ -1,9 +1,7 @@
 #root { 
   --margin-auto: 0 auto;
   --margin-0: 0 ;
-  padding: 2rem;
-  --wid-max: max-width: 50rem;
-  text-align: center;
+  --wid-max: 50rem;
 
   /* Styles Colors */
   --color-primary: #007bff;
@@ -24,6 +22,7 @@
 body {
   margin: 0;
   padding: 0;
+  padding-top: 4rem;
   background-color: #f0f2f5;
   color: var(--color-text);
   --type-first: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -58,11 +57,13 @@ input {
   color: var(--color-text)
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .container {
   max-width: var(--wid-max);
   margin: var(--margin-auto);
   padding: 0 1rem;
-  display: flex;
-  flex-direction: row-reverse;
-  gap: 1rem;
 }
