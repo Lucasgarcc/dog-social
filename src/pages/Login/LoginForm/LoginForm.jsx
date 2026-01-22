@@ -1,7 +1,8 @@
 import React from 'react'
 import styles from './LoginForm.module.css';
 import { Link } from 'react-router-dom';
-
+import Input from '../../../components/ui/Input/Input.jsx';
+import Button from '../../../components/ui/Button/Button.jsx';
 
 const LoginForm = () => {
 
@@ -53,6 +54,8 @@ const LoginForm = () => {
                 return tokenValue = json.token;
             })
             .catch(err => {
+
+                setError(err.message);
                 console.error(err);
             });
     };
@@ -78,26 +81,32 @@ const LoginForm = () => {
             <h1>Login</h1> 
             
             <form onSubmit={handleSubmit}>
-                <input 
-                    name='username'
-                    type="text" 
+                <Input 
+                    name={'username'}
+                    type={'text'} 
                     value={data.username} 
-                    placeholder="Usuário" 
+                    placeholder={'Usuário'} 
                     onChange={handleChange}
                 />
-                <input
-                    name='password'
-                    type="text"
+                <Input
+                    name={'password'}
+                    type={'text'}
                     value={data.password}
-                    placeholder="Digite a Senha"
+                    placeholder={'Digite a Senha'}
                     onChange={handleChange}
                 />
 
-                <button type="submit">Entrar</button>
+                <Button 
+                    type={'submit'} 
+                    label={'Entrar'} 
+                />
+
             </form>
 
             <Link to="/login/create"> Criar Conta</Link> 
+
             {error && <p>{error}</p>}
+
         </section>
     )
 }
