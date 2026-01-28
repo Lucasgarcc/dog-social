@@ -3,15 +3,15 @@ import styles from './Button.module.css';
 
 const Button = ({ label, onClick, disabled, type }) => {
   return (
- 
-      <button 
-          className={styles.Button}
-          onClick={onClick} 
-          type={type} 
-          disabled={disabled}
-        >
-        {label}
-      </button>
+
+    <button
+      className={styles.button}
+      onClick={onClick}
+      type={type}
+      disabled={disabled}
+    >
+      {label}
+    </button>
   )
 }
 
