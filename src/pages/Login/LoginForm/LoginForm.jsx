@@ -82,6 +82,8 @@ const LoginForm = () => {
             
             <form onSubmit={handleSubmit}>
                 <Input 
+                    id={'username'}
+                    label={'Usuário'}
                     name={'username'}
                     type={'text'} 
                     value={data.username} 
@@ -89,6 +91,8 @@ const LoginForm = () => {
                     onChange={handleChange}
                 />
                 <Input
+                    id={'password'}
+                    label={'Senha'}
                     name={'password'}
                     type={'text'}
                     value={data.password}

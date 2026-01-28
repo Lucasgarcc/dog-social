@@ -14,6 +14,10 @@
   --color-light: #f8f9fa;
   --color-dark: #343a40;
   --color-text: #333;
+
+  --color-text-btn: #fff;
+  --color-primary-hover: #2a8bf1;
+  --color-primary-focus: #a9d2ffde;
 }
 
 * {
