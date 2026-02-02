@@ -1,44 +1,39 @@
-import React from 'react'
+import React, { use } from 'react'
 import styles from './LoginForm.module.css';
 import { Link } from 'react-router-dom';
 import Input from '../../../components/ui/Input/Input.jsx';
 import Button from '../../../components/ui/Button/Button.jsx';
+import  useForm from '../../../hooks/useForm/useForm.jsx';
 
 const LoginForm = () => {
 
     /**
-     * State para armazenar os dados do formulário
+     * @description  para armazenar os dados do formulário
      */
-    const [data, setData] = React.useState({
-        username: '',
-        password: ''
+    const fields = useForm({
+        username: 'email',
+        password: 'password'
     });
 
     /**
-     * State para armazenar o token recebido após o login
-     */
-    const [error, setError] = React.useState(null);
-
-
-
-    /**
-     * Função para lidar com o envio do formulário
+     * @description Função para lidar com o envio do formulário
      * @param {e} 
      */
     const handleSubmit = (e) => {
 
         e.preventDefault();
 
+        if (!fields.valideteAll()) return;
+        
         const URL = 'https://dogsapi.origamid.dev/json/jwt-auth/v1/token';
 
-        console.log({ ...data });
 
-        fetch(URL, {
+       fetch(URL, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(fields.values)
         })
             .then(resp => {
 
@@ -60,21 +55,6 @@ const LoginForm = () => {
             });
     };
 
-    /**
-     * Função para atualizar o state conforme o usuário digita
-     * @param {e}
-     */
-    const handleChange = (e) => {
-
-        e.preventDefault();
-
-        const { name, value } = e.target;
-        setData({
-            ...data, // Mantém o que já estava lá
-            [ name ]: value // Atualiza apenas o campo que mudou
-        });
-    }
-
     return (
         <section className={styles.loginForm}>
             
@@ -85,19 +65,17 @@ const LoginForm = () => {
                     id={'username'}
                     label={'Usuário'}
                     name={'username'}
-                    type={'text'} 
-                    value={data.username} 
+                    type="text" 
                     placeholder={'Usuário'} 
-                    onChange={handleChange}
+                    {...fields.username}
                 />
                 <Input
                     id={'password'}
                     label={'Senha'}
                     name={'password'}
-                    type={'text'}
-                    value={data.password}
+                    type="password"
                     placeholder={'Digite a Senha'}
-                    onChange={handleChange}
+                    {...fields.password}
                 />
 
                 <Button 
@@ -108,8 +86,6 @@ const LoginForm = () => {
             </form>
 
             <Link to="/login/create"> Criar Conta</Link> 
-
-            {error && <p>{error}</p>}
 
         </section>
     )

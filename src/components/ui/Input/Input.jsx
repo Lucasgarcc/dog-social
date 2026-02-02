@@ -9,7 +9,8 @@ const Input = ({
 	 	value, 
 		placeholder, 
 		onChange,
-		error
+		error,
+		onBlur
 	
 	}) => {
 	
@@ -28,10 +29,13 @@ const Input = ({
 				value={value}
 				placeholder={placeholder}
 				onChange={onChange}
+				onBlur={onBlur}
 			/>
-			<span className={styles.error}>
-				{error}
-			</span>
+			{error &&
+				<span className={styles.error}>
+					{error}
+				</span> 
+			}
 		</div>
 
 	)
