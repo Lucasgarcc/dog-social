@@ -2,3 +2,14 @@
 .loginForm	{
     
 }
+.create    {
+    display: block;
+    margin-top: 1rem;
+    color: var(--color-primary);
+    font-size: 0.875rem;
+    text-decoration: none;
+}
+
+.btnSend {
+    margin: 1rem 0 .5rem 0;
+}
