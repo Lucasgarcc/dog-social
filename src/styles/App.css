@@ -71,3 +71,10 @@ a {
   margin: var(--margin-auto);
   padding: 0 1rem;
 }
+
+.error {
+  color: var(--color-danger);
+  font-size: .795rem;
+  margin-top: .2rem;
+  max-width: 40ch;
+}
