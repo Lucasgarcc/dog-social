@@ -8,28 +8,28 @@ import Login from './pages/Login/Login.jsx';
 
 function App() {
 
-  return (
-      <>
-        <div>
-            {/* Header */}
-            <Header />
+	return (
+		<>
+			<div>
+				{/* Header */}
+				<Header />
 
-            <Routes>
-                <Route 
-                  path='/' 
-                  element={<Home />} 
-                />
-                <Route 
-                  path='/login/*' 
-                  element={<Login />}
-                />
-            </Routes>
+				<Routes>
+					<Route
+						path='/'
+						element={<Home />}
+					/>
+					<Route
+						path='/login/*'
+						element={<Login />}
+					/>
+				</Routes>
 
-            {/* Footer */}
-            <Footer />
-        </div>
-      </>
-  )
+				{/* Footer */}
+				<Footer />
+			</div>
+		</>
+	)
 }
 
 export default App; 
