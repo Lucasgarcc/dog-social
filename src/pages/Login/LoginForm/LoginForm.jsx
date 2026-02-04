@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Input from '../../../components/ui/Input/Input.jsx';
 import Button from '../../../components/ui/Button/Button.jsx';
 import  useForm from '../../../hooks/useForm/useForm.jsx';
-import { TOKEN_POST, USER_GET } from '../../../api/endpoints/endpoints.js';
+import  { UserContext }  from '../../../contexts/UserContext.jsx';
 
 const LoginForm = () => {
 
@@ -16,36 +16,13 @@ const LoginForm = () => {
         password: 'password'
     });
 
+    const { userLogin } = React.useContext(UserContext);
+
+
     /**
      * @description  para armazenar mensagens de erro do login
      */
     const [ error, setError ] = React.useState(null);
-
-    /**
-     * 
-     * @param {*} token 
-     * @returns 
-     */
-    const getUser = async (token) => {
-
-        const { url, options } = USER_GET(token);
-
-        const resp = await fetch(url, options);
-        const json = resp.json();
-        return json;
-    }
-
-    /**
-     * @description Verifica se já existe um token no localStorage ao montar o componente
-     */
-    React.useEffect(() => {
-        const token = window.localStorage.getItem('token');
-
-        if (token) {
-            getUser(token);
-        }
-
-    }, []);
 
     /**
      * @description Função para lidar com o envio do formulário
@@ -58,19 +35,7 @@ const LoginForm = () => {
         if (fields.valideteAll()) return;
     
         try {
-            const { url, options } = TOKEN_POST(fields.values);
-            
-            const resp = fetch(url, options).then(r => r.json());
-            const json = await resp;
-
-            window.localStorage.setItem('token', json.token);
-
-            if (!resp.ok) {
-                throw new Error(json.message);
-            }
-
-
-            return json;
+            userLogin(fields.values);
         }
         catch (err) {
             setError(err.message.replace(/<[^>]*>/g, '')   // remove HTML
