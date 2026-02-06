@@ -17,26 +17,29 @@ const Login = () => {
 	if (login) return <Navigate to='/account' />;
 	
 	return (
-		<div className={styles.login}>
-			<Routes>
-				<Route
-					path="/"
-					element={<LoginForm />}
-				/>
-				<Route
-					path="/login/create"
-					element={<LoginCreate />}
-				/>
-				<Route
-					path="/password-lost"
-					element={<LoginPasswordLost />}
-				/>
-				<Route
-					path="/reset"
-					element={<LoginPasswordReset />}
-				/>
-			</Routes>
-		</div>
+		<section className={styles.loginContainer} >
+			<div className={styles.forms}>
+				<Routes>
+					<Route
+						path="/"
+						element={<LoginForm />}
+					/>
+					<Route
+						path="/login/create"
+						element={<LoginCreate />}
+					/>
+					<Route
+						path="/password-lost"
+						element={<LoginPasswordLost />}
+					/>
+					<Route
+						path="/reset"
+						element={<LoginPasswordReset />}
+					/>
+				</Routes>
+			</div>
+		</section>
+		
 	)
 }
 

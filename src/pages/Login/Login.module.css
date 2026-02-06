@@ -1,6 +1,25 @@
-.login {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
+.loginContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    min-height: 100vh;
+    gap: 2rem;
+}
+
+.loginContainer::before {
+    display: block;
+    content: '';
+    background: url('../../../src/assets/img/login.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.forms  {
+    max-width: 30rem;
+    padding: 2rem;
+}
+
+@media screen and (max-width: 40rem) {
+    .loginContainer {
+        grid-template-columns: 1fr;
+    }
 }
