@@ -25,7 +25,7 @@ const Login = () => {
 						element={<LoginForm />}
 					/>
 					<Route
-						path="/login/create"
+						path="/create"
 						element={<LoginCreate />}
 					/>
 					<Route
