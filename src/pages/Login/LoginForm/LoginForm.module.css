@@ -1,15 +1,42 @@
 
-.loginForm	{
-    
-}
-.create    {
-    display: block;
-    margin-top: 1rem;
-    color: var(--color-primary);
-    font-size: 0.875rem;
-    text-decoration: none;
-}
-
 .btnSend {
     margin: 1rem 0 .5rem 0;
 }
+
+.resetpassword {
+    padding: .5rem 0;
+    display: inline-block;
+    color: var(--color-secondary);
+    font-size: 0.875rem;
+    line-height: 1;
+    text-decoration: none;
+}
+
+.resetpassword:hover {
+    color: var(--color-semi-grey-light);
+}
+
+.register {
+    margin-top: 1.5rem;
+
+    .subtitle {
+        font-family: var(--type-second);
+        font-size: 2rem;
+    }
+
+
+    .subtitle::after {
+        content: '';
+        display: block;
+        background-color: var(--color-grey-light);
+        width: 1.5rem;
+        height: 2px;
+        border-radius: 1rem;
+    }
+
+    .text{
+        margin-top: 1.8rem;
+       margin-bottom: 2rem; 
+    }
+}
+

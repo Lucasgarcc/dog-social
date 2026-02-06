@@ -3,6 +3,8 @@ import styles from './LoginForm.module.css';
 import { Link } from 'react-router-dom';
 import Input from '../../../components/ui/Input/Input.jsx';
 import Button from '../../../components/ui/Button/Button.jsx';
+import styleBtn from '../../../components/ui/Button/Button.module.css';
+import Error from '../../../components/ui/Error/Error.jsx';
 import  useForm from '../../../hooks/useForm/useForm.jsx';
 import  { UserContext }  from '../../../contexts/UserContext.jsx';
 
@@ -33,9 +35,9 @@ const LoginForm = () => {
     };
 
     return (
-        <section className={styles.loginForm}>
+        <section className={`${styles.loginForm} animeLeft`} >
             
-            <h1>Login</h1> 
+            <h1 className='title'>Login</h1> 
             
             <form onSubmit={handleSubmit}>
                 <Input 
@@ -69,13 +71,26 @@ const LoginForm = () => {
                     />
                 )}
 
-                {error && <p className='error' >{error}</p>}
+                {error && 
+                    <Error error={error} />
+                }
 
             </form>
-            
+            <Link
+                to="/login/resetpassword"
+                className={styles.resetpassword}
+            >
+                Esqueceu a Senha?
+            </Link> 
+
+            <div className={styles.register}>
+                <h2 className={styles.subtitle}>Cadastre-se</h2>
+                <p className={styles.text}>Ainda não possui conta? Cadastre-se no site.</p>
+            </div>
+
             <Link
                 to="/login/create" 
-                className={styles.create}
+                className={styleBtn.button}
             >
              Criar Conta
             </Link> 
