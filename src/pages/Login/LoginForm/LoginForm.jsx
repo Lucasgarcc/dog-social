@@ -16,13 +16,7 @@ const LoginForm = () => {
         password: 'password'
     });
 
-    const { userLogin } = React.useContext(UserContext);
-
-
-    /**
-     * @description  para armazenar mensagens de erro do login
-     */
-    const [ error, setError ] = React.useState(null);
+    const { userLogin, error, loading } = React.useContext(UserContext);
 
     /**
      * @description Função para lidar com o envio do formulário
@@ -32,17 +26,10 @@ const LoginForm = () => {
 
         e.preventDefault();
 
-        if (fields.valideteAll()) return;
+        if (!fields.valideteAll()) return;
     
-        try {
-            userLogin(fields.values);
-        }
-        catch (err) {
-            setError(err.message.replace(/<[^>]*>/g, '')   // remove HTML
-                        .replace(/^Erro:\s*/i, '') // remove "Erro:"
-                        .trim());
-        }
-
+        userLogin(fields.values.username, fields.values.password);
+        
     };
 
     return (
@@ -68,13 +55,21 @@ const LoginForm = () => {
                     {...fields.password}
                 />
 
-                {error  && <p className='error' >{error}</p>}
+                {loading ?  (
+                    <Button 
+                        className={styles.btnSend}
+                        label={'Carregando...'}
+                        disabled
+                    />
+                ) : (
+                    <Button 
+                        className={styles.btnSend}
+                        type={'submit'} 
+                        label={'Entrar'} 
+                    />
+                )}
 
-                <Button 
-                    className={styles.btnSend}
-                    type={'submit'} 
-                    label={'Entrar'} 
-                />
+                {error && <p className='error' >{error}</p>}
 
             </form>
             

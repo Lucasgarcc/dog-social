@@ -1,34 +1,43 @@
 import React from 'react'
 import styles from './Login.module.css';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import LoginForm from './LoginForm/LoginForm.jsx';
 import LoginCreate from './LoginCreate/LoginCreate.jsx';
 import LoginPasswordLost from './LoginPasswordLost/LoginPasswordLost.jsx';
 import LoginPasswordReset from './LoginPasswordReset/LoginPasswordReset.jsx';
+import { UserContext } from '../../contexts/UserContext.jsx';
 
 const Login = () => {
-  return (
-    <div className={styles.login}>
-      <Routes>
-        <Route 
-          path="/" 
-          element={<LoginForm />}
-        />
-        <Route 
-          path="/login/create" 
-          element={<LoginCreate />} 
-        />
-        <Route
-          path="/password-lost"
-          element={<LoginPasswordLost />}
-        />
-        <Route
-          path="/reset"
-          element={<LoginPasswordReset />}
-        />
-      </Routes>
-    </div>
-  )
+
+	const { login } = React.useContext(UserContext);
+
+	/**
+	 * @description Redireciona para a página de conta se o usuário já estiver logado
+	 */
+	if (login) return <Navigate to='/account' />;
+	
+	return (
+		<div className={styles.login}>
+			<Routes>
+				<Route
+					path="/"
+					element={<LoginForm />}
+				/>
+				<Route
+					path="/login/create"
+					element={<LoginCreate />}
+				/>
+				<Route
+					path="/password-lost"
+					element={<LoginPasswordLost />}
+				/>
+				<Route
+					path="/reset"
+					element={<LoginPasswordReset />}
+				/>
+			</Routes>
+		</div>
+	)
 }
 
 export default Login
