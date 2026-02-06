@@ -1,6 +1,5 @@
 export const API_URL = 'https://dogsapi.origamid.dev/json/';
 
-
 /**
  * @description Função genérica para realizar requisições à API.
  * @param {*} route
@@ -32,7 +31,6 @@ const request = ({route, method, body, token}) => {
  
 };
 
-
 /**
  * @description Endpoint para realizar o login do usuário.
  * @param {body}  
@@ -47,7 +45,7 @@ export const TOKEN_POST = (body) => {
 }
 
 /**
- * @description Endpoint para realizar o login do usuário.
+ * @description Endpoint para resgatar o token do usuário.
  * @param {token} 
  */
 export const USER_GET = (token) => {
@@ -61,7 +59,7 @@ export const USER_GET = (token) => {
 }
 
 /**
- * 
+ * @description Endpoint para realizar a validação do Token 
  * @param {*} token 
  */
 export const TOKEN_VALIDATION_POST = (token) => {
@@ -70,4 +68,17 @@ export const TOKEN_VALIDATION_POST = (token) => {
       method: 'POST',
       token,
     });
-}  
+} 
+
+/**
+ * @description Endpoint para realizar o cadastro do usuário.
+ * @param {body}  
+ */
+export const USER_POST = (body) => {
+
+    return request ({
+        route:'api/user',
+        method: 'POST',
+        body,  
+    });
+}

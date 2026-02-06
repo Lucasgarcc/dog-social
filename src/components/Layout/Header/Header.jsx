@@ -2,7 +2,6 @@ import React from 'react'
 import styles from './Header.module.css';
 import { Link } from 'react-router-dom';
 import Logo from '../../../assets/img/dog.svg?react';
-
 import{ UserContext } from '../../../contexts/UserContext';
 
 const Header = () => {
@@ -10,7 +9,7 @@ const Header = () => {
 	/**
 	 * @description  para acessar os dados do usuário no contexto
 	 */
-	const { data, logout } = React.useContext(UserContext);
+	const { data, userLogout } = React.useContext(UserContext);
 
 	return (
 		<div className={styles.Header}>
@@ -22,7 +21,7 @@ const Header = () => {
 				</Link>
 
 				{data && data.nome ? (
-					<button onClick={logout} className={styles.Logout}>
+					<button onClick={userLogout} className={styles.Logout}>
 						Sair
 					</button>
 				) : (
