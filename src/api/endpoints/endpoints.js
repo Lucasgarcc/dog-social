@@ -2,40 +2,72 @@ export const API_URL = 'https://dogsapi.origamid.dev/json/';
 
 
 /**
- * @description Endpoint para realizar o login do usuário.
- * @param {body} 
+ * @description Função genérica para realizar requisições à API.
+ * @param {*} route
+ * @param {*} options
+ * @param {*} body
+ * @param {*} token
  * @returns 
+ */
+const request = ({route, method, body, token}) => {
+
+    const options = {
+        method,
+        headers: {},
+    };
+
+    if (token) {
+        options.headers['Authorization'] = `Bearer ${token}`;
+    }
+
+    if (body) {
+        options.headers['Content-Type'] = 'application/json';
+        options.body = JSON.stringify(body);
+    }
+
+    return {
+        url: API_URL + route,
+        options,
+    };
+ 
+};
+
+
+/**
+ * @description Endpoint para realizar o login do usuário.
+ * @param {body}  
  */
 export const TOKEN_POST = (body) => {
 
-    return  {
-        url: API_URL + 'jwt-auth/v1/token',
-        options: {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(body)
-        },
-        
-    };
+    return request ({
+        route:'jwt-auth/v1/token',
+        method: 'POST',
+        body,  
+    });
 }
 
 /**
  * @description Endpoint para realizar o login do usuário.
- * @param {body} 
- * @returns 
+ * @param {token} 
  */
 export const USER_GET = (token) => {
-
-    return  {
-        url: API_URL + 'api/user',
-        options: {
-            method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${token}`,
-            },
-        },
-        
-    };
+    
+    return request ({
+        route:'api/user',
+        method: 'GET',
+        token,  
+    });
+   
 }
+
+/**
+ * 
+ * @param {*} token 
+ */
+export const TOKEN_VALIDATION_POST = (token) => {
+    return request({
+      route: 'jwt-auth/v1/token/validate',
+      method: 'POST',
+      token,
+    });
+}  
