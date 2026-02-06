@@ -6,6 +6,8 @@
   /* Styles Colors */
   --color-primary: #007bff;
   --color-secondary: #6c757d;
+  --color-grey-light: #cecece;
+  --color-semi-grey-light: #acacac;
   --color-success: #28a745;
   --color-danger: #dc3545;
   --color-warning: #ffc107;
@@ -23,6 +25,7 @@
 * {
   box-sizing: border-box;
 }
+
 body {
   margin: 0;
   padding: 0;
@@ -66,6 +69,28 @@ a {
   color: inherit;
 }
 
+.title {
+	margin: 1rem 0;
+	position: relative;
+	font-family: var(--type-second);
+	line-height: 1;
+	font-size: 3rem;
+	z-index: 1;
+}
+
+.title::after {
+	content: '';
+	display: block;
+	width: 1.5rem;
+	height: 1.5rem;
+	background-color: var(--color-primary);
+	position: absolute;
+	bottom: .2rem;
+	left: -.5rem;
+	border-radius:  .2rem;
+	z-index: -1;
+}
+
 .container {
   max-width: var(--wid-max);
   margin: var(--margin-auto);
@@ -77,4 +102,20 @@ a {
   font-size: .795rem;
   margin-top: .2rem;
   max-width: 40ch;
+}
+
+
+/* Animations */
+
+.animeLeft {
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: animeLeft 0.3s forwards;
+}
+
+@keyframes animeLeft {
+  to {
+    opacity: 1;
+    transform: initial;
+  }
 }

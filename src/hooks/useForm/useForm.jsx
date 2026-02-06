@@ -4,10 +4,15 @@ import React from 'react'
  * @description Definição dos tipos de validação disponíveis
  */
 const types = {
+  username: {
+    name: 'usuário',
+    regex: /^[a-zA-Z][a-zA-Z0-9_]{2,15}$/,
+    message: 'O usuário deve começar com uma letra, conter apenas letras, números ou "_" e ter entre 3 e 15 caracteres.'
+  },
   email: {
     name: 'email',
     regex: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
-    message: 'Preencha um email válido.'
+    message: 'Preencha um email válido'
   },
   password: {
     name: 'senha',
