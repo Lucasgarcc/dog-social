@@ -10,7 +10,7 @@ const Header = () => {
 	/**
 	 * @description  para acessar os dados do usuário no contexto
 	 */
-	const { data } = React.useContext(UserContext);
+	const { data, logout } = React.useContext(UserContext);
 
 	return (
 		<div className={styles.Header}>
@@ -21,11 +21,16 @@ const Header = () => {
 					<Logo />
 				</Link>
 
-				<Link 
-				 	to={ data ? '/login' : '/account' } 
-					className={styles.Login}>
-					{data && data.nome ? `Olá  ${data.nome}` : 'Login / Criar'}
-				</Link>
+				{data && data.nome ? (
+					<button onClick={logout} className={styles.Logout}>
+						Sair
+					</button>
+				) : (
+					<Link to="/login" className={styles.Login}>
+						Login / Criar
+					</Link>
+				)}
+		
 			</nav>
 		</div>
 	)
