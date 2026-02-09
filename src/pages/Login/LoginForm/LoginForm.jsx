@@ -3,8 +3,7 @@ import styles from './LoginForm.module.css';
 import { Link } from 'react-router-dom';
 import Input from '../../../components/ui/Input/Input.jsx';
 import Button from '../../../components/ui/Button/Button.jsx';
-import styleBtn from '../../../components/ui/Button/Button.module.css';
-import Error from '../../../components/ui/Error/Error.jsx';
+import Error from '../../../components/Helpers/Error/Error.jsx';
 import  useForm from '../../../hooks/useForm/useForm.jsx';
 import  { UserContext }  from '../../../contexts/UserContext.jsx';
 
@@ -59,15 +58,21 @@ const LoginForm = () => {
 
                 {loading ?  (
                     <Button 
-                        className={styles.btnSend}
-                        label={'Carregando...'}
+                        color='--color-primary'
+                        hoverColor='--color-primary-hover'
+                        focusColor='-color-primary-focus'
+                        label='Carregando...'
+                        type={'button'}
                         disabled
                     />
                 ) : (
                     <Button 
-                        className={styles.btnSend}
+
+                        color='--color-primary'
+                        hoverColor='--color-primary-hover'
+                        focusColor='-color-primary-focus'
                         type={'submit'} 
-                        label={'Entrar'} 
+                        label={'Entrar'}
                     />
                 )}
 
@@ -87,14 +92,17 @@ const LoginForm = () => {
                 <h2 className={styles.subtitle}>Cadastre-se</h2>
                 <p className={styles.text}>Ainda não possui conta? Cadastre-se no site.</p>
             </div>
-
-            <Link
-                to="/login/create" 
-                className={styleBtn.button}
-            >
-             Criar Conta
-            </Link> 
-            
+ 
+            <Link   to="/login/create" >
+                <Button
+                    color='--color-primary'
+                    hoverColor='--color-primary-hover'
+                    focusColor='-color-primary-focus'
+                    label='Criar Conta'
+                    type={'button'}
+                />
+            </Link>
+  
         </section>
     )
 }
