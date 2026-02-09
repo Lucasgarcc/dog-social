@@ -5,6 +5,8 @@ import Button from '../../../components/ui/Button/Button'
 import useForm from '../../../hooks/useForm/useForm';
 import { UserContext } from '../../../contexts/UserContext';
 import Error from '../../../components/ui/Error/Error';
+import useFetch from '../../../hooks/useFetch/useFetch';
+import { USER_POST } from '../../../api/endpoints/endpoints';
 
 const LoginCreate = () => {
 
@@ -20,7 +22,8 @@ const LoginCreate = () => {
 	/**
 	 * @description contexto global com actions api
 	 */
-	const { userLogin, userCreate, data, error, loading } = React.useContext(UserContext);
+	const { userLogin} = React.useContext(UserContext);
+	const {loading, data, error, request} = useFetch();
 
 	/**
 	 * 
@@ -34,7 +37,9 @@ const LoginCreate = () => {
 
 		if (!fields.valideteAll()) return;
 
-		userCreate(fields.values);
+		const { url, options } = USER_POST(fields.values);
+
+		request(url, options);
 
 		if (data) {
 			setTimeout(async () => {
@@ -76,13 +81,11 @@ const LoginCreate = () => {
 
 				{loading ? (
 					<Button
-						className={styles.btnSend}
 						label={'Carregando...'}
 						disabled
 					/>
 				) : (
 					<Button
-						className={styles.btnSend}
 						type={'submit'}
 						label={'Cadastrar'}
 					/>
