@@ -20,6 +20,10 @@
   --color-text-btn: #fff;
   --color-primary-hover: #2a8bf1;
   --color-primary-focus: #a9d2ffde;
+
+  --color-danger-hover: #c40000;
+  --color-danger-focus: #ffa9a9de;
+
 }
 
 * {
