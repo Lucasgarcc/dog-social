@@ -26,9 +26,7 @@ const UserStorage = ({ children }) => {
         setLogin(false);
         window.localStorage.removeItem('token');
 
-        navigate('/login');
-
-    }, [ navigate ]);
+    }, []);
 
     /**
      * @description Efeito para verificar se o usuário 
@@ -52,9 +50,6 @@ const UserStorage = ({ children }) => {
                     if (!resp.ok) throw new Error('Token inválido');
 
                     await getUser(token);
-
-                    // Redireciona para a página de conta após o login automático
-                    navigate('/account');
 
                 }
                 catch(err) {
@@ -166,7 +161,7 @@ const UserStorage = ({ children }) => {
     }
 
     return (
-        <UserContext.Provider value={{userCreate, userLogin, userLogout , data, error, loading, login}}>
+        <UserContext.Provider value={{userCreate, userLogin, userLogout, navigate, data, error, loading, login}}>
             {children}
         </UserContext.Provider>
     )

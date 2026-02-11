@@ -1,0 +1,47 @@
+.nav {
+    display:  grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+
+    a,
+    button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #eee;
+        border-radius: .2rem;
+        width: 40px;
+        height: 40px;
+        border: 1px solid transparent;
+        transition: .1s;
+        cursor: pointer;
+    }
+
+    a:hover,
+    a:focus,
+    button:hover,
+    button:focus {
+        background: white;
+        box-shadow: 0 0 0 3px #eee;
+        border-color: var(--color-dark);
+        outline: none;
+    }
+
+
+}
+
+/* UserHeaderNav.module.css */
+.nav a:global(.active) {
+  background: white;
+  box-shadow: 0 0 0 3px rgb(170, 204, 255);
+  border-color: var(--color-primary);
+}
+
+/* O seletor abaixo força a cor, ignorando o preenchimento padrão */
+.nav a:global(.active) svg * {
+  fill: var(--color-primary) !important;
+}
+
+
+
+  
