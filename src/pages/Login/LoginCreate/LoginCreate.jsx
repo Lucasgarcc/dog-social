@@ -4,7 +4,7 @@ import Input from '../../../components/ui/Input/Input'
 import Button from '../../../components/ui/Button/Button'
 import useForm from '../../../hooks/useForm/useForm';
 import { UserContext } from '../../../contexts/UserContext';
-import Error from '../../../components/ui/Error/Error';
+import Error from '../../../components/Helpers/Error/Error';
 import useFetch from '../../../hooks/useFetch/useFetch';
 import { USER_POST } from '../../../api/endpoints/endpoints';
 
@@ -43,7 +43,7 @@ const LoginCreate = () => {
 
 		if (data) {
 			setTimeout(async () => {
-				userLogin(fields.values.email, fields.values.password);
+				await userLogin(fields.values.email, fields.values.password);
 			}, 0);
 		}
 
@@ -88,6 +88,9 @@ const LoginCreate = () => {
 					<Button
 						type={'submit'}
 						label={'Cadastrar'}
+						color={'--color-primary'}
+						hoverColor={'--color-primary-hover'}
+						focusColor={'-color-primary-focus'}
 					/>
 				)}
 

@@ -26,9 +26,7 @@ const UserStorage = ({ children }) => {
         setLogin(false);
         window.localStorage.removeItem('token');
 
-        navigate('/login');
-
-    }, [ navigate ]);
+    }, []);
 
     /**
      * @description Efeito para verificar se o usuário 
@@ -53,9 +51,6 @@ const UserStorage = ({ children }) => {
 
                     await getUser(token);
 
-                    // Redireciona para a página de conta após o login automático
-                    navigate('/account');
-
                 }
                 catch(err) {
 
@@ -64,6 +59,9 @@ const UserStorage = ({ children }) => {
                 finally {
                     setLoading(false);
                 }
+            }
+            else {
+                setLogin(false);
             }
         } 
 
@@ -163,7 +161,7 @@ const UserStorage = ({ children }) => {
     }
 
     return (
-        <UserContext.Provider value={{userCreate, userLogin, userLogout , data, error, loading, login}}>
+        <UserContext.Provider value={{userCreate, userLogin, userLogout, navigate, data, error, loading, login}}>
             {children}
         </UserContext.Provider>
     )

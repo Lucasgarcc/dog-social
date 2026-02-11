@@ -1,7 +1,16 @@
 import React from 'react'
 import styles from './Button.module.css';
 
-const Button = ({ label, onClick, disabled, type, className}) => {
+const Button = ({ 
+    label, 
+    onClick, 
+    disabled, 
+    type, 
+    className, 
+	color,
+    hoverColor ,
+	focusColor
+  }) => {
   return (
 
     <button
@@ -9,8 +18,13 @@ const Button = ({ label, onClick, disabled, type, className}) => {
       onClick={onClick}
       type={type}
       disabled={disabled}
-    >
-      {label}
+	  style={{
+		'--btn-color': `var(${color})`,
+		'--btn-hover': `var(${hoverColor})`,
+		'--btn-focus': `var(${focusColor})`,
+	  }}
+    > 
+    {label}
     </button>
   )
 }

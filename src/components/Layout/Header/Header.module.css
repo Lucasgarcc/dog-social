@@ -35,3 +35,15 @@
   no-repeat center center;
   background-size: contain;
 }
+
+.user {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.logout {
+  background-color: var(--color-danger) !important;
+  color: #fff;
+}
