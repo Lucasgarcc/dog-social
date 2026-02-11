@@ -9,12 +9,20 @@ const Header = () => {
 	/**
 	 * @description  para acessar os dados do usuário no contexto
 	 */
-	const { data, userLogout } = React.useContext(UserContext);
+	const { data, userLogout, navigate } = React.useContext(UserContext);
+
+	/**
+	 * @description Função de sair
+	 */
+	const logout = () => {
+		userLogout();
+		navigate('/login');
+	}
 
 	return (
 
 		<div className={styles.Header}>
-			
+	
 			<nav className={`${styles.headerNav} container`}>
 				<Link className={styles.Logo} to="/"
 					aria-label='Dogs - Home'>
@@ -28,7 +36,7 @@ const Header = () => {
 						</span>
 
 						<Button
-							onClick={userLogout}
+							onClick={logout}
 							color='--color-danger'
 							hoverColor='--color-danger-hover'
 							focusColor='-color-danger-focus'

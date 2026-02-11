@@ -23,8 +23,8 @@ const Button = ({
 		'--btn-hover': `var(${hoverColor})`,
 		'--btn-focus': `var(${focusColor})`,
 	  }}
-    >
-      {label}
+    > 
+    {label}
     </button>
   )
 }

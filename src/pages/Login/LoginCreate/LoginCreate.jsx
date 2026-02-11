@@ -43,7 +43,7 @@ const LoginCreate = () => {
 
 		if (data) {
 			setTimeout(async () => {
-				userLogin(fields.values.email, fields.values.password);
+				await userLogin(fields.values.email, fields.values.password);
 			}, 0);
 		}
 
