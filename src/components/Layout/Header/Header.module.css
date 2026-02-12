@@ -43,7 +43,6 @@
   align-items: center;
 }
 
-.logout {
-  background-color: var(--color-danger) !important;
-  color: #fff;
+.userName {
+  text-transform: uppercase;
 }
