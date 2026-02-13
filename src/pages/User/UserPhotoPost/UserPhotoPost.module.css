@@ -1,0 +1,69 @@
+.photoPost {
+    margin-bottom: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+
+}
+
+.preview {
+    border-radius: 1rem;
+    background-size: cover;
+    background-position: center center;
+    transition: 0.3s ease;
+}
+
+.preview::after {
+    padding-bottom: 100%;
+    content: '';
+    display: block;
+    height: 0px;
+    border-radius: 1rem;
+
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.021);
+}
+
+.fileWrapper {
+    margin-bottom: 1rem;
+  }
+  
+  .fileInput {
+    display: none;
+  }
+  
+  .fileLabel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+  
+    font-weight: 600;
+    cursor: pointer;
+  
+    background: linear-gradient(135deg, var(--color-primary), #2e54ff);
+    color: white;
+  
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .fileLabel:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  }
+  
+  .fileLabel:active {
+    transform: scale(0.98);
+  }
+  
+
+@media (max-width: 768px) {
+    .photoPost {
+        grid-template-columns: 1fr;
+    }
+}

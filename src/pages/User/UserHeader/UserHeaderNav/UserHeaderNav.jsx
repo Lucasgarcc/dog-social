@@ -70,7 +70,7 @@ const UserHeaderNav = () => {
                 <NavLink
                     to="/account/posted">
                     <Add />
-                    {mobile && 'modAdicionar Foto'}
+                    {mobile && 'Adicionar Foto'}
                 </NavLink>
 
                 <button
