@@ -20,8 +20,12 @@ const request = ({route, method, body, token}) => {
     }
 
     if (body) {
-        options.headers['Content-Type'] = 'application/json';
-        options.body = JSON.stringify(body);
+        if (body instanceof FormData) {
+          options.body = body;
+        } else {
+          options.headers['Content-Type'] = 'application/json';
+          options.body = JSON.stringify(body);
+        }
     }
 
     return {
@@ -81,4 +85,20 @@ export const USER_POST = (body) => {
         method: 'POST',
         body,  
     });
+}
+
+/**
+ * @description Endpoint para postagem de fotos.
+ * @param {token}
+ * @param {body} 
+ */
+export const PHOTO_POST = (body,token) => {
+    
+    return request ({
+        route:'api/photo',
+        method: 'POST',
+        token, 
+        body 
+    });
+   
 }

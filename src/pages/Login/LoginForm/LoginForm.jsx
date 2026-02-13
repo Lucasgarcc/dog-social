@@ -34,7 +34,7 @@ const LoginForm = () => {
     };
 
     return (
-        <section className={`${styles.loginForm} animeLeft`} >
+        <section className={`animeLeft`} >
             
             <h1 className='title'>Login</h1> 
             
@@ -67,7 +67,6 @@ const LoginForm = () => {
                     />
                 ) : (
                     <Button 
-
                         color='--color-primary'
                         hoverColor='--color-primary-hover'
                         focusColor='-color-primary-focus'

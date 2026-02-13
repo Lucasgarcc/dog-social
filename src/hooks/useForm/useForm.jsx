@@ -4,20 +4,35 @@ import React from 'react'
  * @description Definição dos tipos de validação disponíveis
  */
 const types = {
-  username: {
-    name: 'usuário',
-    regex: /^[a-zA-Z][a-zA-Z0-9_]{2,15}$/,
-    message: 'O usuário deve começar com uma letra, conter apenas letras, números ou "_" e ter entre 3 e 15 caracteres.'
+	username: {
+		name: 'usuário',
+		regex: /^[a-zA-Z][a-zA-Z0-9_]{2,15}$/,
+		message: 'O usuário deve começar com uma letra, conter apenas letras, números ou "_" e ter entre 3 e 15 caracteres.'
+	},
+	email: {
+		name: 'email',
+		regex: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
+		message: 'Preencha um email válido'
+	},
+	password: {
+		name: 'senha',
+		regex: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
+		message: 'A senha deve ter no mínimo 8 caracteres, incluindo letras e números.'
+	},
+  name: {
+    name: 'nome',
+    regex: /^[A-Za-zÀ-ÖØ-öø-ÿ ]{2,}$/,
+    message: 'Insira seu nome completo (apenas letras).'
   },
-  email: {
-    name: 'email',
-    regex: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
-    message: 'Preencha um email válido'
+  weight: {
+    name: 'peso',
+    regex: /^\d{1,3}(?:[.,]\d{1,2})?$/,
+    message: 'Insira um peso válido (ex: 75.5).'
   },
-  password: {
-    name: 'senha',
-    regex: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
-    message: 'A senha deve ter no mínimo 8 caracteres, incluindo letras e números.'
+  age: {
+    name: 'idade',
+    regex: /^(?:[1-9][0-9]?|150)$/,
+    message: 'Insira uma idade válida entre 1 e 150.'
   }
 }
 
