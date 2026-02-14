@@ -59,13 +59,9 @@ const UserPhotoPost = () => {
 
     const handleImgChange = ({target}) => {
         
-        const isPng = target.files.type ==='image/png';
-        console.log(isPng);
-
         setImg({
             preview: URL.createObjectURL(target.files[0]),
             raw: target.files[0],
-            isPng
         });
 
         console.log(URL.createObjectURL(target.files[ 0 ]))
@@ -130,9 +126,7 @@ const UserPhotoPost = () => {
             <div>
                 {img.preview && (
                     <div 
-                        className={`${styles.preview} ${
-                        img.isPng ? styles.pngBorder : ''
-                        }`}
+                        className={styles.preview}
                         style={{backgroundImage: `url('${img.preview}')`}}>
                     </div>
                 )}
