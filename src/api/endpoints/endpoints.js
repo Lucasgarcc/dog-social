@@ -8,11 +8,14 @@ export const API_URL = 'https://dogsapi.origamid.dev/json/';
  * @param {*} token
  * @returns 
  */
-const request = ({route, method, body, token}) => {
+const request = ({route, method, body, token, cache}) => {
 
     const options = {
         method,
         headers: {},
+        ...(cache &&
+            {cache}
+        ),
     };
 
     if (token) {
@@ -99,6 +102,21 @@ export const PHOTO_POST = (body,token) => {
         method: 'POST',
         token, 
         body 
+    });
+   
+}
+
+/**
+ * @description Endpoint para puxar as fotos de postagem.
+ * @param {token}
+ * @param {body} 
+ */
+export const PHOTOS_GET = ({page, total, user}) => {
+    
+    return request ({
+        route: `api/photo/?_page=${page}&_total=${total}&_user=${user}`,
+        method: 'GET',
+        cache: 'no-store'
     });
    
 }
