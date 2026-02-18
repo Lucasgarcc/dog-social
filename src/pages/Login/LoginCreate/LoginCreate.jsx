@@ -6,7 +6,7 @@ import useForm from '../../../hooks/useForm/useForm';
 import { UserContext } from '../../../contexts/UserContext';
 import Error from '../../../components/Helpers/Error/Error';
 import useFetch from '../../../hooks/useFetch/useFetch';
-import { USER_POST } from '../../../api/endpoints/endpoints';
+import { USER_POST } from '../../../routes/endpoints/endpoints';
 
 const LoginCreate = () => {
 

@@ -1,11 +1,11 @@
-import React from 'react'
-import styles from './FeedPhotos.module.css'
-import FeedPhotosItem from '../FeedPhotosItem/FeedPhotosItem'
-import useFetch from '../../.././hooks/useFetch/useFetch'
-import { PHOTOS_GET } from '../../../api/endpoints/endpoints';
+import React from 'react';
+import styles from './FeedPhotos.module.css';
+import FeedPhotosItem from '../FeedPhotosItem/FeedPhotosItem';
+import useFetch from '../../.././hooks/useFetch/useFetch';
+import { PHOTOS_GET } from '../../../routes/endpoints/endpoints';
 import Loading from '../../Helpers/Loading/Loading';
 
-const FeedPhotos = () => {
+const FeedPhotos = ({setModalPhoto}) => {
 
     const {data, loading, error, request} = useFetch();
 
@@ -33,7 +33,11 @@ const FeedPhotos = () => {
         return (
             <ul className={`${styles.feed} animeLeft`}> 
                 {data.map((photo) => (
-                     <FeedPhotosItem key={photo.id} photo={photo} />
+                    <FeedPhotosItem 
+                        key={photo.id} 
+                        photo={photo}
+                        setModalPhoto={setModalPhoto} 
+                    />
                 ))}
             </ul>
         )

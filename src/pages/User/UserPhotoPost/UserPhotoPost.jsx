@@ -4,7 +4,7 @@ import Input from '../../../components/ui/Input/Input'
 import Button from '../../../components/ui/Button/Button';
 import useForm from '../../../hooks/useForm/useForm';
 import useFetch from '../../../hooks/useFetch/useFetch';
-import { PHOTO_POST } from '../../../api/endpoints/endpoints';
+import { PHOTO_POST } from '../../../routes/endpoints/endpoints';
 import Error from '../../../components/Helpers/Error/Error';
 import {UserContext} from '../../../contexts/UserContext'
 const UserPhotoPost = () => {

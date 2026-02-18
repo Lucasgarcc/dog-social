@@ -120,3 +120,19 @@ export const PHOTOS_GET = ({page, total, user}) => {
     });
    
 }
+
+
+/**
+ * @description Endpoint para puxar as fotos de postagem.
+ * @param {token}
+ * @param {body} 
+ */
+export const PHOTO_GET = (id) => {
+    
+    return request ({
+        route: `api/photo/${id}`,
+        method: 'GET',
+        cache: 'no-store'
+    });
+   
+}
