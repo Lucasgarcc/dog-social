@@ -1,5 +1,5 @@
 import React from 'react'
-import { TOKEN_POST, TOKEN_VALIDATION_POST, USER_GET, USER_POST } from '../api/endpoints/endpoints.js';
+import { TOKEN_POST, TOKEN_VALIDATION_POST, USER_GET, USER_POST } from '../routes/endpoints/endpoints.js';
 import {  useNavigate } from 'react-router-dom';
 
 export const UserContext = React.createContext();
