@@ -27,7 +27,7 @@ const LoginForm = () => {
 
         e.preventDefault();
 
-        if (!fields.valideteAll()) return;
+        if (!fields.validateAll()) return;
     
         userLogin(fields.values.username, fields.values.password);
         

@@ -35,7 +35,7 @@ const LoginCreate = () => {
 
 		e.preventDefault();
 
-		if (!fields.valideteAll()) return;
+		if (!fields.validateAll()) return;
 
 		const { url, options } = USER_POST(fields.values);
 
