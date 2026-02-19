@@ -1,0 +1,31 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.textarea {
+    padding-top: 1rem;
+    border:  none;
+    font-size: 1rem;
+    font-family: var(--type-first);
+    resize: none;
+    border:  1px solid #eee;
+    border-radius: .2rem;
+    background: #eee;
+    text-align: justify;
+    line-height: .8;
+}
+
+.textarea:focus,
+.textarea:hover {
+    outline: none;
+    border-color: var(--color-primary-focus);
+}
+
+.error {
+    color: var(--color-danger);
+    font-size: .795rem;
+    margin-top: .2rem;
+    max-width: 40ch;
+}

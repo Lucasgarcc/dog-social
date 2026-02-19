@@ -108,8 +108,9 @@ export const PHOTO_POST = (body,token) => {
 
 /**
  * @description Endpoint para puxar as fotos de postagem.
- * @param {token}
- * @param {body} 
+ * @param {page}
+ * @param {total}
+ * @param {user} 
  */
 export const PHOTOS_GET = ({page, total, user}) => {
     
@@ -123,15 +124,30 @@ export const PHOTOS_GET = ({page, total, user}) => {
 
 
 /**
- * @description Endpoint para puxar as fotos de postagem.
- * @param {token}
- * @param {body} 
+ * @description Endpoint para puxar a foto usando id.
+ * @param {id}
  */
 export const PHOTO_GET = (id) => {
     
     return request ({
         route: `api/photo/${id}`,
         method: 'GET',
+        cache: 'no-store'
+    });
+   
+}
+
+/**
+ * @description Endpoint para comentar na foto.
+ * @param {id}
+ */
+export const COMMENT_POST = (id, body, token) => {
+    
+    return request ({
+        route: `api/comment/${id}`,
+        method: 'POST',
+        token,
+        body,     
         cache: 'no-store'
     });
    

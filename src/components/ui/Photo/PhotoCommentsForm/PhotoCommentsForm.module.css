@@ -1,0 +1,47 @@
+.formComment {
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: stretch;
+    gap: 1rem;
+}
+
+.button {
+    display: flex;
+    background: transparent;
+    cursor: pointer;
+    color: var(--color-dark);
+    font-size: 1rem;    
+    border: none;
+    overflow: hidden;
+}
+
+.button svg {
+    margin-top: .4rem;
+}
+
+.button:focus,
+.button:hover {
+ outline:  none;
+}
+
+.button:focus svg *,
+.button:hover svg * {
+    fill: rgb(1, 132, 255);
+    stroke: var(--color-primary-focus);
+}
+
+.button:focus svg g,
+.button:hover svg g {
+    animation: latir .6s infinite;
+}
+
+@keyframes latir {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

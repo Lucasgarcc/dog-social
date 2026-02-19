@@ -38,9 +38,10 @@ const UserPhotoPost = () => {
      * @param {*} e
      */
     const sendPhoto = (e) => {
+
         e.preventDefault();
 
-        if (!fields.valideteAll()) return;
+        if (!fields.validateAll()) return;
         if (!img?.raw) return;
 
         const formData = new FormData();

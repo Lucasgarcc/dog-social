@@ -1,0 +1,62 @@
+/* Container geral dos comentários */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+/* Título fixo */
+.title {
+  margin: 1.5rem 2rem 2rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+/* Lista de comentários (ÚNICO SCROLL) */
+.comments {
+  flex: 1;
+  padding: 0 2rem;
+  overflow-y: auto;
+  word-break: break-word;
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar */
+.comments::-webkit-scrollbar {
+  width: 8px;
+}
+
+.comments::-webkit-scrollbar-track {
+  background: #e5e5e5;
+}
+
+.comments::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary);
+  border-radius: 999px;
+}
+
+.comments::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-primary);
+}
+
+.comments::-webkit-scrollbar-button {
+  display: none;
+}
+
+/* Comentário individual */
+.comments li {
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+/* Autor */
+.comments b {
+  margin-right: .5rem;
+  color: var(--color-primary);
+}
+
+/* Texto do comentário */
+.comments span {
+  color: #333;
+}
