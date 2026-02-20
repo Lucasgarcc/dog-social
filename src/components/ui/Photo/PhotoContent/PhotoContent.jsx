@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import PhotoComments from '../PhotoComments/PhotoComments';
 import { UserContext } from '../../../../contexts/UserContext';
 import PhotoDelete from '../PhotoDelete/PhotoDelete';
+import Skeletion from '../../../Helpers/Skeleton/Skeletion';
 
 const PhotoContent = ({data}) => {
    
@@ -15,7 +16,7 @@ const PhotoContent = ({data}) => {
         <div  className={styles.photo}>
 
             <div className={styles.img}>
-                <img src={photo.src} alt={photo.title} />
+                <Skeletion alt={photo.title} src={photo.src} />
             </div>
 
             <div className={styles.details}>
