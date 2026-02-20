@@ -1,0 +1,25 @@
+.delete {
+    background: #fff;
+}
+
+
+.button {
+    padding: .4rem .6rem;
+    background: #e4e4e4;
+    line-height: 1;
+    border: 1px solid transparent;
+    border-radius: .4rem;
+    cursor: pointer;
+    font-family: var(--type-first);
+    cursor: pointer;
+    transition:  .1s;
+
+}
+
+.button:focus,
+.button:hover {
+   outline: none;
+   background: white;
+   box-shadow: 0 0 0 3px #eee;
+   border-color: var(--color-secondary);
+}
