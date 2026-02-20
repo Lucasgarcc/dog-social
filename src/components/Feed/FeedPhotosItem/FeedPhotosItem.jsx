@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './FeedPhotosItem.module.css';
+import Skeletion from '../../Helpers/Skeleton/Skeletion';
 
 const FeedPhotosItem = ({ photo, setModalPhoto}) => {
 
@@ -10,7 +11,9 @@ const FeedPhotosItem = ({ photo, setModalPhoto}) => {
     return (
 
         <li className={styles.photo} onClick={handleClick}>
-            <img src={photo.src} alt={photo.title} />
+
+            <Skeletion alt={photo.title} src={photo.src} />
+            
             <span className={styles.view}>{photo.acessos}</span>
         </li>
 

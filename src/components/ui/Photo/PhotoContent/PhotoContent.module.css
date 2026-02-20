@@ -50,7 +50,8 @@
     align-items: center;
 }
 
-.author a {
+.author a, 
+.views {
     opacity: 0.5;
 }
 
