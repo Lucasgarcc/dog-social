@@ -140,6 +140,8 @@ export const PHOTO_GET = (id) => {
 /**
  * @description Endpoint para comentar na foto.
  * @param {id}
+ * @param {body}
+ * @param {token}
  */
 export const COMMENT_POST = (id, body, token) => {
     
@@ -149,6 +151,21 @@ export const COMMENT_POST = (id, body, token) => {
         token,
         body,     
         cache: 'no-store'
+    });
+   
+}
+
+/**
+ * @description Endpoint para deletar uma foto.
+ * @param {id}
+ * @param {token}
+ */
+export const PHOTO_DELETE = (id, token) => {
+    
+    return request ({
+        route: `api/photo/${id}`,
+        method: 'DELETE',
+        token,
     });
    
 }

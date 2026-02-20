@@ -27,7 +27,11 @@ const Header = () => {
 						<span className={styles.userName}>
 							{data.nome}
 						</span>
-						<User />
+						
+						<Link to="/account">
+							<User />
+						</Link>
+						
 					</div>
 				) : (
 					<Link to="/login" className={styles.Login}>

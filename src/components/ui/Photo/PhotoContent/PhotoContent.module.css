@@ -28,9 +28,7 @@
     grid-row: 1 / 4;
 }
 
-.comments {
-    padding: 0 2rem;
-}
+
 
 @media (max-width: 64rem) {
     .photo {
@@ -50,6 +48,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.author a {
     opacity: 0.5;
 }
 

@@ -24,9 +24,9 @@ const PhotoCommentsForm = ({id, setComments}) => {
         const token = window.localStorage.getItem('token');
         const { url, options } = COMMENT_POST(id, field.values, token);
 
-        const {json} =  await request(url, options);
+        const {json, resp} =  await request(url, options);
     
-        if (json) {
+        if (resp.ok) {
             field.values.comment = '';
             setComments((comments) => [...comments, json]);
         }
