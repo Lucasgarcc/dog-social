@@ -101,6 +101,10 @@ a {
   padding: 0 1rem;
 }
 
+.main-container {
+  margin: 2rem 0 2rem 0;
+}
+
 .error {
   color: var(--color-danger);
   font-size: .795rem;
@@ -108,9 +112,7 @@ a {
   max-width: 40ch;
 }
 
-
 /* Animations */
-
 .animeLeft {
   opacity: 0;
   transform: translateX(-20px);
