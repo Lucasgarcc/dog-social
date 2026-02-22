@@ -5,7 +5,7 @@ import useFetch from '../../.././hooks/useFetch/useFetch';
 import { PHOTOS_GET } from '../../../routes/endpoints/endpoints';
 import Loading from '../../Helpers/Loading/Loading';
 
-const FeedPhotos = ({setModalPhoto}) => {
+const FeedPhotos = ({ user , page, setModalPhoto, setInfinite}) => {
 
     const {data, loading, error, request} = useFetch();
 
@@ -13,18 +13,25 @@ const FeedPhotos = ({setModalPhoto}) => {
 
         const fetchPhotos = async ()  => {
 
+            const total = 12;
             const { url, options } = PHOTOS_GET({
-                page: 1,
-                total: 6,
-                user: 0
+                page,
+                total,
+                user
             });
 
-            await request(url, options);
+            const { response, json } = await request(url, options);
+
+            if (response && response.resp.ok && json.length < total) {
+
+                setInfinite(false);
+
+            }
         };
 
         fetchPhotos();
 
-    },[request]);
+    },[request, user, page, setInfinite]);
 
     if (error)  return <Error error={error} />;
     if (loading) return <Loading />;
