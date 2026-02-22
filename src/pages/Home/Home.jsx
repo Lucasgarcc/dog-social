@@ -6,7 +6,7 @@ const Home = () => {
 
 	return (
 
-		<section className={`${styles.home} container  main-container`}>
+		<section className={`${styles.home} container`}>
 
 			<Feed />
 
