@@ -7,7 +7,7 @@ import useForm from '../../../../hooks/useForm/useForm';
 import Textarea from '../../Textarea/Textarea';
 import Error from '../../../Helpers/Error/Error';
 
-const PhotoCommentsForm = ({id, setComments}) => {
+const PhotoCommentsForm = ({id, setComments, single}) => {
 
     const field = useForm({
         comment: 'comment'
@@ -42,7 +42,7 @@ const PhotoCommentsForm = ({id, setComments}) => {
 
     return (
 
-        <form className={styles.formComment} onSubmit={sendComment}>
+        <form className={`${styles.formComment} ${single ? styles.single : ''}`} onSubmit={sendComment}>
             <Textarea
                 id="comment"
                 name="comment"

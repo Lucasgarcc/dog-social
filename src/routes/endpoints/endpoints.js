@@ -138,6 +138,19 @@ export const PHOTO_GET = (id) => {
 }
 
 /**
+ * @description Endpoint para puxar a foto usando id.
+ * @param {id}
+ */
+export const PHOTO = (id) => {
+    
+    return request ({
+        route: `api/photo/${id}`,
+    });
+   
+}
+
+
+/**
  * @description Endpoint para comentar na foto.
  * @param {id}
  * @param {body}
