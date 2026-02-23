@@ -6,6 +6,7 @@ import LoginCreate from './LoginCreate/LoginCreate.jsx';
 import LoginPasswordLost from './LoginPasswordLost/LoginPasswordLost.jsx';
 import LoginPasswordReset from './LoginPasswordReset/LoginPasswordReset.jsx';
 import { UserContext } from '../../contexts/UserContext.jsx';
+import NotFoundPage from '../NotFoundPage/NotFoundPage.jsx';
 
 const Login = () => {
 
@@ -35,6 +36,12 @@ const Login = () => {
 					<Route
 						path="/reset"
 						element={<LoginPasswordReset />}
+					/>
+					<Route
+						path='*'
+						element={
+							<NotFoundPage />
+						}
 					/>
 				</Routes>
 			</div>

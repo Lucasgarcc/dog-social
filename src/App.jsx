@@ -9,6 +9,7 @@ import User from './pages/USer/User.jsx';
 import ProtectedRoute from './components/Helpers/ProtectedRoute/ProtectedRoute.jsx';
 import Photo from './components/ui/Photo/Photo.jsx';
 import UserProfile from './pages/User/UserProfile/UserProfile.jsx';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage.jsx';
 
 function App() {
 
@@ -45,6 +46,12 @@ function App() {
 						path='profile/:user'
 						element={
 							<UserProfile />
+						}
+					/>
+					<Route 
+						path='*'
+						element={
+							<NotFoundPage />
 						}
 					/>
 				</Routes>

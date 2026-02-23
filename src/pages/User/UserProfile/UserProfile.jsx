@@ -15,7 +15,6 @@ const UserProfile = () => {
 
             <h1 className={` title ${styles.title}`}> {user} </h1>
 
-          
             <Feed user={user} />
 
         </section>

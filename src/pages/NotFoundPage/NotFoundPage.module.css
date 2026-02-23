@@ -1,0 +1,41 @@
+.error {
+    margin: 2rem 2rem;
+}
+
+.errorContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.errorNumber {
+    margin-bottom: 2rem;
+    font-size: 10rem;
+    font-weight: bold;
+    color: var(--color-primary);
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+}
+  
+.errorNumber::after {
+    content: "";
+    position: absolute;
+    /* Posiciona a sombra abaixo do texto */
+    bottom: -10px; 
+    left: 10%;
+    
+    /* Cria o formato da sombra */
+    width: 80%;
+    height: 15px;
+    background: rgba(0, 0, 0, 0.3); /* Cor da sombra */
+    
+    /* O pulo do gato: arredondar e desfocar */
+    border-radius: 50%;
+    filter: blur(8px);
+    
+    /* Garante que a sombra fique atrás se necessário */
+    z-index: -1;
+ }
