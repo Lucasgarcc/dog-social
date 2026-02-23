@@ -1,8 +1,9 @@
 import React from 'react';
 import FeedModal from './FeedModal/FeedModal';
 import FeedPhotos from './FeedPhotos/FeedPhotos';
+import { FeedProps } from '../../types/feed.types';
 
-const Feed = ({user}) => {
+const Feed = ({ user }) => {
 
     const [modalPhoto, setModalPhoto] = React.useState(null);
     const [pages, setPages] = React.useState([1]);
@@ -73,4 +74,6 @@ const Feed = ({user}) => {
     );
 };
 
-export default Feed
+Feed.prototype = FeedProps;
+
+export default Feed;
