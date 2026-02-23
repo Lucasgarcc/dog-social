@@ -6,6 +6,7 @@ import UserPhotoPost from './UserPhotoPost/UserPhotoPost';
 import UserStatistics from './UserStatistics/UserStatistics';
 import UserHeader from './UserHeader/UserHeader';
 import { UserContext } from '../../contexts/UserContext';
+import NotFoundPage from '../NotFoundPage/NotFoundPage.jsx';
 
 
 const User = () => {
@@ -32,7 +33,12 @@ const User = () => {
 					path="posted"
 					element={<UserPhotoPost />}
 				/>
-
+				<Route
+					path='*'
+					element={
+						<NotFoundPage />
+					}
+				/>
 		
 			</Routes>
 
