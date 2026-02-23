@@ -39,7 +39,7 @@
 
 .single .img {
     grid-row: 1;
-    border-radius: 2rem;
+    border-radius: 1 rem;
     overflow: hidden;
 }
 
