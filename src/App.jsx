@@ -8,6 +8,7 @@ import Login from './pages/Login/Login.jsx';
 import User from './pages/USer/User.jsx';
 import ProtectedRoute from './components/Helpers/ProtectedRoute/ProtectedRoute.jsx';
 import Photo from './components/ui/Photo/Photo.jsx';
+import UserProfile from './pages/User/UserProfile/UserProfile.jsx';
 
 function App() {
 
@@ -33,12 +34,17 @@ function App() {
 								<User />
 							</ProtectedRoute>
 						}
-						
 					/>
 					<Route 
 						path='photo/:id' 
 						element={ 
 							<Photo />
+						}
+					/>
+					<Route
+						path='profile/:user'
+						element={
+							<UserProfile />
 						}
 					/>
 				</Routes>

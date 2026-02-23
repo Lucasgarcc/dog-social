@@ -1,0 +1,16 @@
+.profile {
+    padding: 1rem;
+
+    .title {
+        margin: .8rem 0;
+        margin-bottom: 2rem;
+        margin-left: .5rem;
+    }
+
+    .subtitle {
+        margin: 1rem 0;
+        font-size: 1.125rem;
+        color: var(--color-grey);
+        text-transform: uppercase;
+    }
+}
