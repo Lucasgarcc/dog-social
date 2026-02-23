@@ -7,6 +7,7 @@ import Footer from './components/Layout/Footer/Footer';
 import Login from './pages/Login/Login.jsx';
 import User from './pages/USer/User.jsx';
 import ProtectedRoute from './components/Helpers/ProtectedRoute/ProtectedRoute.jsx';
+import Photo from './components/ui/Photo/Photo.jsx';
 
 function App() {
 
@@ -22,17 +23,23 @@ function App() {
 						element={<Home />}
 					/>
 					<Route
-						path='/login/*'
+						path='login/*'
 						element={<Login />}
 					/>
 					<Route
-						path='/account/*'
+						path='account/*'
 						element={
 							<ProtectedRoute>
 								<User />
 							</ProtectedRoute>
 						}
 						
+					/>
+					<Route 
+						path='photo/:id' 
+						element={ 
+							<Photo />
+						}
 					/>
 				</Routes>
 

@@ -6,14 +6,15 @@ import { UserContext } from '../../../../contexts/UserContext';
 import PhotoDelete from '../PhotoDelete/PhotoDelete';
 import Skeletion from '../../../Helpers/Skeleton/Skeletion';
 
-const PhotoContent = ({data}) => {
-   
-    const { photo, comments } = data;
+const PhotoContent = ({ data, single }) => {
+
+
     const user = React.useContext(UserContext);
+    const { photo, comments } = data;
 
     return (
 
-        <div  className={styles.photo}>
+        <div  className={`${styles.photo} ${single ? styles.single : ''}`}>
 
             <div className={styles.img}>
                 <Skeletion alt={photo.title} src={photo.src} />
@@ -38,7 +39,7 @@ const PhotoContent = ({data}) => {
                         </span>
                     </p>
                     <h1 className='title'>
-                        <Link to={`/foto/${photo.id}`}>
+                        <Link to={`/photo/${photo.id}`}>
                             {photo.title}
                         </Link>
                     </h1>
@@ -59,7 +60,8 @@ const PhotoContent = ({data}) => {
 
             <PhotoComments 
                 id={photo.id} 
-                comments={comments} 
+                comments={comments}
+                single={true} 
             />
         </div>
 

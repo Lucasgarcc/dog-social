@@ -22,6 +22,10 @@
   scroll-behavior: smooth;
 }
 
+.single .comments {
+  padding: 0;
+}
+
 /* Scrollbar */
 .comments::-webkit-scrollbar {
   width: 8px;
