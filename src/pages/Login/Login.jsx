@@ -34,7 +34,7 @@ const Login = () => {
 						element={<LoginPasswordLost />}
 					/>
 					<Route
-						path="/reset"
+						path="/resetar"
 						element={<LoginPasswordReset />}
 					/>
 					<Route
