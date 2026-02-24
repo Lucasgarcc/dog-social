@@ -81,7 +81,7 @@ const LoginForm = () => {
 
             </form>
             <Link
-                to="/login/resetpassword"
+                to="/login/password-lost"
                 className={styles.resetpassword}
             >
                 Esqueceu a Senha?
