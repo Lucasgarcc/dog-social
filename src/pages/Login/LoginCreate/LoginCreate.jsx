@@ -7,6 +7,7 @@ import { UserContext } from '../../../contexts/UserContext';
 import Error from '../../../components/Helpers/Error/Error';
 import useFetch from '../../../hooks/useFetch/useFetch';
 import { USER_POST } from '../../../routes/endpoints/endpoints';
+import Head from '../../../components/Helpers/Head/Head';
 
 const LoginCreate = () => {
 
@@ -51,6 +52,11 @@ const LoginCreate = () => {
 
 	return (
 		<section className='animeLeft'>
+
+			<Head 
+				title={'Cadastro'}
+			/>
+
 			<h1 className='title'>Cadastre-se</h1>
 
 			<form onSubmit={createUser}>

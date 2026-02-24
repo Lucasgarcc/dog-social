@@ -7,6 +7,7 @@ import UserStatistics from './UserStatistics/UserStatistics';
 import UserHeader from './UserHeader/UserHeader';
 import { UserContext } from '../../contexts/UserContext';
 import NotFoundPage from '../NotFoundPage/NotFoundPage.jsx';
+import Head from '../../components/Helpers/Head/Head.jsx';
 
 
 const User = () => {
@@ -14,7 +15,13 @@ const User = () => {
 	const { data } = React.useContext(UserContext);
 
 	return (
+
 		<section className='container'>
+
+			{/* Head navegador */}
+			<Head
+				title={'Minha Conta'} 
+			/>
 
 			{/* Header */}
 			<UserHeader />
@@ -43,6 +50,7 @@ const User = () => {
 			</Routes>
 
 		</section>
+
 	)
 }
 
