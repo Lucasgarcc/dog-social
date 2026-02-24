@@ -6,6 +6,7 @@ import { PHOTO } from '../../../routes/endpoints/endpoints';
 import Loading from '../../Helpers/Loading/Loading';
 import Error from '../../Helpers/Error/Error';
 import PhotoContent from './PhotoContent/PhotoContent';
+import Head from '../../Helpers/Head/Head';
 
 const Photo = () => {
 
@@ -29,6 +30,11 @@ const Photo = () => {
         return (
 
             <div className={`${styles.photo} animeLeft container` }>
+
+                <Head
+                    title={data.photo.title}
+                />
+            
                 <PhotoContent data={data} single={true} />
             </div>
 

@@ -7,6 +7,7 @@ import useFetch from '../../../hooks/useFetch/useFetch';
 import { PHOTO_POST } from '../../../routes/endpoints/endpoints';
 import Error from '../../../components/Helpers/Error/Error';
 import {UserContext} from '../../../contexts/UserContext'
+import Head from '../../../components/Helpers/Head/Head';
 const UserPhotoPost = () => {
     
     /**
@@ -22,7 +23,7 @@ const UserPhotoPost = () => {
      * @description  variaveis de estado
      */
     const [img, setImg] = React.useState({});
-    const { request, data, error } = useFetch();
+    const {request, data, error, loading } = useFetch();
     const { navigate } = React.useContext(UserContext);
 
     /**
@@ -71,6 +72,9 @@ const UserPhotoPost = () => {
     return (
         <section className={`${styles.photoPost} animeLeft`}>
 
+            <Head
+                title={'Postar Foto'}
+            />
             <form onSubmit={sendPhoto}>
 
                 <Input 
@@ -109,14 +113,27 @@ const UserPhotoPost = () => {
                     </label>
                 </div>
 
+                {loading ? (
+                        <Button
+                            color='--color-primary'
+                            hoverColor='--color-primary-hover'
+                            focusColor='-color-primary-focus'
+                            type={'submit'}
+                            disabled
+                            label={'Enviando'}
+                        />
+                    ):
+                    (
 
-                <Button 
-                    color='--color-primary'
-                    hoverColor='--color-primary-hover'
-                    focusColor='-color-primary-focus'
-                    type={'submit'}
-                    label={'Enviar'} 
-                />
+                    <Button
+                        color='--color-primary'
+                        hoverColor='--color-primary-hover'
+                        focusColor='-color-primary-focus'
+                        type={'submit'}
+                        label={'Enviar'}
+                    />
+
+                )}
 
                 {error &&
                     <Error error={error} />

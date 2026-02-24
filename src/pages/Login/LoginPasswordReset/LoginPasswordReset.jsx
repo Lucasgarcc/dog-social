@@ -7,6 +7,7 @@ import useForm from '../../../hooks/useForm/useForm';
 import { PASSWORD_RESET } from '../../../routes/endpoints/endpoints';
 import Error from '../../../components/Helpers/Error/Error';
 import { UserContext } from '../../../contexts/UserContext';
+import Head from '../../../components/Helpers/Head/Head';
 
 const LoginPasswordReset = () => {
 
@@ -53,7 +54,9 @@ const LoginPasswordReset = () => {
 	return (
 
 		<div>
-
+			<Head
+				title={'Redefinir Senha'} 
+			/>
 			<h1 className='title'>Redefinir Senha</h1>
 
 			<form onSubmit={handlePasswordReset}>

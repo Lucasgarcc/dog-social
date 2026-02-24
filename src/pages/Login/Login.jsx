@@ -7,6 +7,7 @@ import LoginPasswordLost from './LoginPasswordLost/LoginPasswordLost.jsx';
 import LoginPasswordReset from './LoginPasswordReset/LoginPasswordReset.jsx';
 import { UserContext } from '../../contexts/UserContext.jsx';
 import NotFoundPage from '../NotFoundPage/NotFoundPage.jsx';
+import Head from '../../components/Helpers/Head/Head.jsx';
 
 const Login = () => {
 
@@ -19,6 +20,11 @@ const Login = () => {
 	
 	return (
 		<section className={styles.loginContainer} >
+	
+			<Head
+				title={'Login'} 
+			/>
+
 			<div className={styles.forms}>
 				<Routes>
 					<Route

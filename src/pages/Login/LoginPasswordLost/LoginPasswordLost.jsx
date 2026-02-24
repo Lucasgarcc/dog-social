@@ -6,6 +6,7 @@ import useFetch from '../../../hooks/useFetch/useFetch.jsx';
 import Error from '../../../components/Helpers/Error/Error.jsx';
 import { PASSWORD_LOST } from '../../../routes/endpoints/endpoints.js';
 import SweelAlert from '../../../components/Helpers/SweelAlert/SweelAlert.jsx';
+import Head from '../../../components/Helpers/Head/Head.jsx';
 
 const LoginPasswordLost = () => {
 
@@ -37,7 +38,9 @@ const LoginPasswordLost = () => {
     return (
 
         <section>
-            
+            <Head
+                title={'Recuperar Senha'} 
+            />
             <h1 className='title'>Perdeu a senha?</h1>
 
             <form onSubmit={handlePasswordLost}>
