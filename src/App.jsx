@@ -14,11 +14,13 @@ import NotFoundPage from './pages/NotFoundPage/NotFoundPage.jsx';
 function App() {
 
 	return (
-		<>
-			<div>
-				{/* Header */}
-				<Header />
 
+		<div className='App'>	
+
+			{/* Header */}
+			<Header />
+	
+			<main className='main'>
 				<Routes>
 					<Route
 						path='/'
@@ -56,10 +58,11 @@ function App() {
 					/>
 				</Routes>
 
-				{/* Footer */}
-				<Footer />
-			</div>
-		</>
+	
+			</main>	
+			{/* Footer */}
+			<Footer />
+		</div>
 	)
 }
 
