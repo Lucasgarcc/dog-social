@@ -10,7 +10,7 @@ const Header = () => {
 	/**
 	 * @description  para acessar os dados do usuário no contexto
 	 */
-	const { data, userLogout, navigate } = React.useContext(UserContext);
+	const { data } = React.useContext(UserContext);
 
 	return (
 
@@ -34,9 +34,11 @@ const Header = () => {
 						
 					</div>
 				) : (
+
 					<Link to="/login" className={styles.Login}>
-						Login / Criar
+						Login
 					</Link>
+					
 				)}
 		
 			</nav>

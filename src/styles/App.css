@@ -5,6 +5,7 @@
 
   /* Styles Colors */
   --color-primary: #007bff;
+  --color-primary-s: hsl(205, 100%, 46%);
   --color-secondary: #6c757d;
   --color-grey: #888f94;
   --color-grey-light: #cecece;
@@ -125,4 +126,14 @@ a {
     opacity: 1;
     transform: initial;
   }
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh + 10rem);
+}
+
+.main {
+  flex: 2;
 }
