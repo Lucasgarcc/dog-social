@@ -138,7 +138,7 @@ export const PHOTO_GET = (id) => {
 }
 
 /**
- * @description Endpoint para puxar a foto usando id.
+ * @description Endpoint para puxar a foto página usando id.
  * @param {id}
  */
 export const PHOTO = (id) => {
@@ -179,6 +179,36 @@ export const PHOTO_DELETE = (id, token) => {
         route: `api/photo/${id}`,
         method: 'DELETE',
         token,
+    });
+   
+}
+
+/**
+ * @description Endpoint para recuperar a senha do usuário.
+ * @param {id}
+ * @param {token}
+ */
+export const PASSWORD_LOST = (body) => {
+    
+    return request ({
+        route: `api/password/lost`,
+        method: 'POST',
+        body,
+    });
+   
+}
+
+/**
+ * @description Endpoint para redefinir a senha do usuário.
+ * @param {id}
+ * @param {token}
+ */
+export const PASSWORD_RESET = (body) => {
+    
+    return request ({
+        route: `api/password/reset`,
+        method: 'POST',
+        body,
     });
    
 }

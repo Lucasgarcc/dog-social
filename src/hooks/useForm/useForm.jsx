@@ -38,6 +38,11 @@ const types = {
 		name: 'comentário',
 		regex: /^[\s\S]{2,}$/,
 		message: 'O comentário deve ter mais de 3 caracteres.'
+	},
+	login: {
+		name: 'email ou usuário',
+		regex: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$|^[a-zA-Z][a-zA-Z0-9_]{2,15}$/,
+		message: 'Preencha um email ou usuário válido'
 	}
 }
 
