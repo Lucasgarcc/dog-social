@@ -31,6 +31,7 @@ const User = () => {
 				<Route 
 					path="/"
 					element={<Feed user={data.id} />} 
+					
 				/>
 				<Route
 					path="statistics"
