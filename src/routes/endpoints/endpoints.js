@@ -212,3 +212,18 @@ export const PASSWORD_RESET = (body) => {
     });
    
 }
+
+/**
+ * @description Endpoint para redefinir a senha do usuário.
+ * @param {id}
+ * @param {token}
+ */
+export const GET_STATS = (token) => {
+    
+    return request ({
+        route: `api/stats`,
+        method: 'GET',
+        token
+    });
+   
+}
