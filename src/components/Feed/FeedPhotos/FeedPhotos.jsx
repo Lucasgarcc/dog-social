@@ -5,7 +5,7 @@ import useFetch from '../../.././hooks/useFetch/useFetch';
 import { PHOTOS_GET } from '../../../routes/endpoints/endpoints';
 import Loading from '../../Helpers/Loading/Loading';
 
-const FeedPhotos = ({ user , page, setModalPhoto, setInfinite}) => {
+const FeedPhotos = ({ user , page, setModalPhoto, setInfinite, setHasPhotos}) => {
 
     const {data, loading, error, request} = useFetch();
 
@@ -20,13 +20,19 @@ const FeedPhotos = ({ user , page, setModalPhoto, setInfinite}) => {
                 user
             });
 
+
             const { response, json } = await request(url, options);
 
+            if ( json.length === 0 ) {
+                setHasPhotos(false);
+            }
+ 
             if (response && response.resp.ok && json.length < total) {
 
                 setInfinite(false);
 
             }
+
         };
 
         fetchPhotos();

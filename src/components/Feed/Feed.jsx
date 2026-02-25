@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './Feed.module.css';
 import FeedModal from './FeedModal/FeedModal';
 import FeedPhotos from './FeedPhotos/FeedPhotos';
 import { FeedProps } from '../../types/feed.types';
@@ -8,7 +9,7 @@ const Feed = ({ user }) => {
     const [modalPhoto, setModalPhoto] = React.useState(null);
     const [pages, setPages] = React.useState([1]);
     const [infinite, setInfinite] = React.useState(true);
-
+    const [hasPhotos, setHasPhotos] = React.useState(true);
 
     /**
      * @description Infinite Scroll
@@ -58,6 +59,10 @@ const Feed = ({ user }) => {
                 />
             }
 
+            {!hasPhotos && (
+                <p className={styles.message}>Nenhuma foto encontrada.</p>
+            )}
+
             {pages.map((page) => (
 
                 <FeedPhotos 
@@ -66,6 +71,7 @@ const Feed = ({ user }) => {
                     page={page} 
                     setModalPhoto={setModalPhoto}
                     setInfinite={setInfinite}
+                    setHasPhotos={setHasPhotos}
                 />
             ))}
 

@@ -46,3 +46,9 @@
 .userName {
   text-transform: uppercase;
 }
+
+
+.Logo svg * {
+ 
+  fill: #499ffb;
+}
