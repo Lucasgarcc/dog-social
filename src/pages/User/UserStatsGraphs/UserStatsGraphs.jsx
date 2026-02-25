@@ -9,6 +9,12 @@ const UserStatsGraphs = ({ data }) => {
 
     React.useEffect(() => {
 
+        if (!data || data.length === 0) {
+            setGraph([]);
+            setTotal(0);
+            return;
+        }
+
         const graphData = data.map(item => {
             
             return {
@@ -21,60 +27,62 @@ const UserStatsGraphs = ({ data }) => {
         .reduce((a, b) => a +  b, 0))
 
         setGraph(graphData);
+        
     
     },[data]);
 
-    if (data.length > 0)
+    if (!data || data.length === 0) {
+            
+        return <p className={styles.message}>
+            Nenhum dado encontrado.
+        </p>;
+    }
 
-        return (
-            <section className={`${styles.graph} animeLeft container`}>
+    return (
+        <section className={`${styles.graph} animeLeft container`}>
 
-                <div className={`${styles.total} ${styles.graphItem}`}>
-                    <p>Acessos: {total}</p>
-                </div>
+            <div className={`${styles.total} ${styles.graphItem}`}>
+                <p>Acessos: {total}</p>
+            </div>
 
-                <div className={styles.graphItem}>
-                    <VictoryPie
+            <div className={styles.graphItem}>
+                <VictoryPie
+                    data={graph}
+                    innerRadius={50}
+                    padding={{
+                        top: 20,
+                        bottom: 20,
+                        left: 80,
+                        right: 80
+                    }}
+                    style={{
+                        data: {
+                            fillOpacity: .9,
+                            stroke: '#fff',
+                            strokeWidth: 2
+                        },
+                        labels: {
+                            fontSize: 14,
+                            fill: 'var(--color-dark)'
+                        }
+                    }}
+                />
+            </div>
+            <div className={styles.graphItem}>
+
+                <VictoryChart>
+                    <VictoryBar
                         data={graph}
-                        innerRadius={50}
-                        padding={{
-                            Top: 20,
-                            bottom: 20,
-                            left: 80,
-                            right: 80
-                        }}
-                        style={{
-                            data: {
-                                fillOpacity: .9,
-                                stroke: '#fff',
-                                strokeWidth: 2
-                            },
-                            labels: {
-                                fontSize: 14,
-                                fill: 'var(--color-dark)'
-                            }
-                        }}
+                        alignment={'start'}
+
                     />
-                </div>
-                <div className={styles.graphItem}>
+                </VictoryChart>
 
-                    <VictoryChart>
-                        <VictoryBar
-                            data={graph}
-                            alignment={'start'}
+            </div>
+        </section>
 
-                        />
-                    </VictoryChart>
+    )
 
-                </div>
-            </section>
-
-        )
-
-    else return <>
-        <p className={styles.message}>Nenhum dado encontrado.</p>
-    </> 
-    
 }
 
 export default UserStatsGraphs;

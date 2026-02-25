@@ -8,7 +8,7 @@
 .graphItem {
     display: grid;
     align-items: center;
-    border-radius: .2rem;
+    border-radius: 0.2rem;
     box-shadow: 0 10px 20px rgba(0, 0, 0, .1);
 }
 

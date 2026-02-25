@@ -121,7 +121,7 @@ const UserPhotoPost = () => {
                             focusColor='-color-primary-focus'
                             type={'submit'}
                             disabled
-                            label={'Enviando'}
+                            label={'Enviando...'}
                         />
                     ):
                     (
