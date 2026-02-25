@@ -31,7 +31,7 @@
   display: inline-block;
   width: 14px;
   height: 17px;
-  background: url('../../assets/img/usuario.svg') 
+  background: url('../../../assets/img/usuario.svg')
   no-repeat center center;
   background-size: contain;
 }

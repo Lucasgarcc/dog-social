@@ -13,6 +13,8 @@ const PhotoDelete = ({ id }) => {
 
         e.preventDefault();
 
+        if (typeof window === 'undefined') return;
+
         const token = window.localStorage.getItem('token');
         const { url, options } = PHOTO_DELETE(id, token);
 
