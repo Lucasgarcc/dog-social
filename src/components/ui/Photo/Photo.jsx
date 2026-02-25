@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './Photo.module.css';
 import { useParams } from 'react-router-dom';
 import useFetch from '../../../hooks/useFetch/useFetch';
 import { PHOTO } from '../../../routes/endpoints/endpoints';
@@ -29,7 +28,7 @@ const Photo = () => {
 
         return (
 
-            <div className={`${styles.photo} animeLeft container` }>
+            <div className={animeLeft}>
 
                 <Head
                     title={data.photo.title}

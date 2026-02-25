@@ -20,6 +20,7 @@ const PhotoCommentsForm = ({id, setComments, single}) => {
         e.preventDefault();
 
         if (!field.validateAll()) return;
+        if (typeof window === 'undefined') return;
 
         const token = window.localStorage.getItem('token');
         const { url, options } = COMMENT_POST(id, field.values, token);

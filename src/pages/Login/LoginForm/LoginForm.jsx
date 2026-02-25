@@ -44,7 +44,7 @@ const LoginForm = () => {
                     label={'Usuário'}
                     name={'username'}
                     type="text" 
-                    placeholder={'Usuário'} 
+                    placeholder={'Usuário ou Email'} 
                     {...fields.username}
                 />
                 <Input

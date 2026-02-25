@@ -44,6 +44,7 @@ const UserPhotoPost = () => {
 
         if (!fields.validateAll()) return;
         if (!img?.raw) return;
+        if (typeof window === 'undefined') return;
 
         const formData = new FormData();
 
