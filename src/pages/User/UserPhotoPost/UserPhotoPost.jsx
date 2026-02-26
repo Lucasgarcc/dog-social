@@ -44,6 +44,7 @@ const UserPhotoPost = () => {
 
         if (!fields.validateAll()) return;
         if (!img?.raw) return;
+        if (typeof window === 'undefined') return;
 
         const formData = new FormData();
 
@@ -120,7 +121,7 @@ const UserPhotoPost = () => {
                             focusColor='-color-primary-focus'
                             type={'submit'}
                             disabled
-                            label={'Enviando'}
+                            label={'Enviando...'}
                         />
                     ):
                     (

@@ -4,13 +4,17 @@ import useFetch from '../../../hooks/useFetch/useFetch';
 import Loading from '../../../components/Helpers/Loading/Loading';
 import Error from '../../../components/Helpers/Error/Error';
 import { GET_STATS }  from '../../../routes/endpoints/endpoints';
-const UserStatsGraphs = React.lazy(() => import('../UserStatsGraphs/UserStatsGraphs'));
+const UserStatsGraphs = React.lazy(() =>
+    import('../UserGraphsStats/UserGraphsStats.jsx')
+);
 
 const UserStatistics = () => {
     
     const { data, error, loading, request } = useFetch();
 
     React.useEffect(() => {
+
+        if (typeof window === 'undefined') return;
 
         const getData = async() => {
 
