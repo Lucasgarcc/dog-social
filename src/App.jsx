@@ -13,6 +13,36 @@ import NotFoundPage from './pages/NotFoundPage/NotFoundPage.jsx';
 
 function App() {
 
+	React.useEffect(() => {
+
+		const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+		const favicon = document.querySelector('link[rel="icon"]');
+
+		const handleThemeChange = (e) => {
+
+			const root = document.documentElement;
+
+			if (e.matches) {
+
+				// --- MODO ESCURO ---
+				if (favicon) favicon.href = '/favicon-light.svg'; 
+
+			} else {
+
+				// --- MODO CLARO ---
+				if (favicon) favicon.href = '/favicon.svg';
+			}
+		};
+
+		// Executa ao montar o componente
+		handleThemeChange(darkModeMediaQuery);
+
+		darkModeMediaQuery.addEventListener('change', handleThemeChange);
+
+		return () => darkModeMediaQuery.removeEventListener('change', handleThemeChange);
+	
+	}, []);
+
 	return (
 
 		<div className='App'>	
