@@ -5,7 +5,7 @@ import Loading from '../../../components/Helpers/Loading/Loading';
 import Error from '../../../components/Helpers/Error/Error';
 import { GET_STATS }  from '../../../routes/endpoints/endpoints';
 const UserStatsGraphs = React.lazy(() =>
-    import('../UserStatsGraphs/UserStatsGraphs.jsx')
+    import('../UserGraphsStats/UserGraphsStats.jsx')
 );
 
 const UserStatistics = () => {

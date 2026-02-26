@@ -1,11 +1,12 @@
 import React from 'react';
-import styles from './UserStatsGraphs.module.css';
+import styles from './UserGraphsStats.module.css';
+
 import { VictoryChart, VictoryBar, VictoryPie } from 'victory';
 
 const UserStatsGraphs = ({ data }) => {
 
-    const [graph, setGraph] = React.useState([]);
-    const [total, setTotal] = React.useState(0);
+    const [ graph, setGraph ] = React.useState([]);
+    const [ total, setTotal ] = React.useState(0);
 
     React.useEffect(() => {
 
@@ -16,23 +17,23 @@ const UserStatsGraphs = ({ data }) => {
         }
 
         const graphData = data.map(item => {
-            
+
             return {
                 x: item.title,
                 y: Number(item.acessos)
             }
-        } )
+        })
 
         setTotal(data.map(({ acessos }) => Number(acessos))
-        .reduce((a, b) => a +  b, 0))
+            .reduce((a, b) => a + b, 0))
 
         setGraph(graphData);
-        
-    
-    },[data]);
+
+
+    }, [ data ]);
 
     if (!data || data.length === 0) {
-            
+
         return <p className={styles.message}>
             Nenhum dado encontrado.
         </p>;
@@ -86,3 +87,4 @@ const UserStatsGraphs = ({ data }) => {
 }
 
 export default UserStatsGraphs;
+
