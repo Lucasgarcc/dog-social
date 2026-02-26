@@ -51,7 +51,7 @@ const Feed = ({ user }) => {
 
     return (
 
-        <div>
+        <section className='animeLeft'>
             {modalPhoto && 
                 <FeedModal 
                     photo={modalPhoto} 
@@ -75,7 +75,7 @@ const Feed = ({ user }) => {
                 />
             ))}
 
-        </div>
+        </section>
 
     );
 };
