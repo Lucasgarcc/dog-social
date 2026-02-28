@@ -28,7 +28,7 @@ const Photo = () => {
 
         return (
 
-            <div className={animeLeft}>
+            <div className='animeLeft container'>
 
                 <Head
                     title={data.photo.title}
