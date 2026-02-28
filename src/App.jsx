@@ -20,8 +20,6 @@ function App() {
 
 		const handleThemeChange = (e) => {
 
-			const root = document.documentElement;
-
 			if (e.matches) {
 
 				// --- MODO ESCURO ---

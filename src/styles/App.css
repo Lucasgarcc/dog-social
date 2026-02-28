@@ -1,7 +1,7 @@
 #root { 
   --margin-auto: 0 auto;
   --margin-0: 0 ;
-  --wid-max: 50rem;
+  --wid-max: 67rem;
 
   /* Styles Colors */
   --color-primary: #007bff;
@@ -158,6 +158,9 @@ a {
 
 .main {
   flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .VictoryContainer {
