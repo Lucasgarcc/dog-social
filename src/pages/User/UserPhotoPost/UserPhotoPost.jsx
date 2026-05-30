@@ -1,15 +1,15 @@
 import React from 'react'
 import styles from './UserPhotoPost.module.css'
-import Input from '../../../components/ui/Input/Input'
-import Button from '../../../components/ui/Button/Button';
+import Input from '../../../components/Layout/Header/ui/Input/Input';
+import Button from '../../../components/Layout/Header/ui/Button/Button';
 import useForm from '../../../hooks/useForm/useForm';
 import useFetch from '../../../hooks/useFetch/useFetch';
 import { PHOTO_POST } from '../../../routes/endpoints/endpoints';
 import Error from '../../../components/Helpers/Error/Error';
-import {UserContext} from '../../../contexts/UserContext'
+import { UserContext } from '../../../contexts/UserContext'
 import Head from '../../../components/Helpers/Head/Head';
 const UserPhotoPost = () => {
-    
+
     /**
      * @description  para armazenar os dados do formulário
      */
@@ -23,7 +23,7 @@ const UserPhotoPost = () => {
      * @description  variaveis de estado
      */
     const [img, setImg] = React.useState({});
-    const {request, data, error, loading } = useFetch();
+    const { request, data, error, loading } = useFetch();
     const { navigate } = React.useContext(UserContext);
 
     /**
@@ -58,16 +58,16 @@ const UserPhotoPost = () => {
 
         request(url, options);
     };
-      
 
-    const handleImgChange = ({target}) => {
-        
+
+    const handleImgChange = ({ target }) => {
+
         setImg({
             preview: URL.createObjectURL(target.files[0]),
             raw: target.files[0],
         });
 
-        console.log(URL.createObjectURL(target.files[ 0 ]))
+        console.log(URL.createObjectURL(target.files[0]))
     };
 
     return (
@@ -78,21 +78,21 @@ const UserPhotoPost = () => {
             />
             <form onSubmit={sendPhoto}>
 
-                <Input 
+                <Input
                     label="Nome"
                     type="text"
                     name={'nome'}
                     {...fields.nome}
                 />
-                
-                <Input 
+
+                <Input
                     label="Peso"
                     type="text"
                     name={'peso'}
                     {...fields.peso}
                 />
 
-                <Input 
+                <Input
                     label="Idade"
                     type="text"
                     name={'idade'}
@@ -115,26 +115,26 @@ const UserPhotoPost = () => {
                 </div>
 
                 {loading ? (
-                        <Button
-                            color='--color-primary'
-                            hoverColor='--color-primary-hover'
-                            focusColor='-color-primary-focus'
-                            type={'submit'}
-                            disabled
-                            label={'Enviando...'}
-                        />
-                    ):
-                    (
-
                     <Button
                         color='--color-primary'
                         hoverColor='--color-primary-hover'
                         focusColor='-color-primary-focus'
                         type={'submit'}
-                        label={'Enviar'}
+                        disabled
+                        label={'Enviando...'}
                     />
+                ) :
+                    (
 
-                )}
+                        <Button
+                            color='--color-primary'
+                            hoverColor='--color-primary-hover'
+                            focusColor='-color-primary-focus'
+                            type={'submit'}
+                            label={'Enviar'}
+                        />
+
+                    )}
 
                 {error &&
                     <Error error={error} />
@@ -144,9 +144,9 @@ const UserPhotoPost = () => {
 
             <div>
                 {img.preview && (
-                    <div 
+                    <div
                         className={styles.preview}
-                        style={{backgroundImage: `url('${img.preview}')`}}>
+                        style={{ backgroundImage: `url('${img.preview}')` }}>
                     </div>
                 )}
             </div>

@@ -5,7 +5,7 @@ import Skeletion from '../../Helpers/Skeleton/Skeletion';
 const FeedPhotosItem = ({ photo, setModalPhoto}) => {
 
     const handleClick = ()  => {
-       setModalPhoto(photo);
+        setModalPhoto(photo);
     }
 
     return (

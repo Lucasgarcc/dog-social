@@ -1,21 +1,21 @@
 import React from 'react';
 import styles from './PhotoCommentsForm.module.css';
-import IconComment from '../../../../assets/img/enviar.svg?react';
-import useFetch from '../../../../hooks/useFetch/useFetch';
-import {COMMENT_POST} from '../../../../routes/endpoints/endpoints'
-import useForm from '../../../../hooks/useForm/useForm';
+import IconComment from '../../../../../../assets/img/enviar.svg?react';
+import useFetch from '../../../../../../hooks/useFetch/useFetch';
+import { COMMENT_POST } from '../../../../../../routes/endpoints/endpoints'
+import useForm from '../../../../../../hooks/useForm/useForm';
 import Textarea from '../../Textarea/Textarea';
-import Error from '../../../Helpers/Error/Error';
+import Error from '../../../../../Helpers/Error/Error';
 
-const PhotoCommentsForm = ({id, setComments, single}) => {
+const PhotoCommentsForm = ({ id, setComments, single }) => {
 
     const field = useForm({
         comment: 'comment'
     })
 
-    const {request, error} = useFetch();
+    const { request, error } = useFetch();
 
-    const sendComment = async (e)  => {
+    const sendComment = async (e) => {
 
         e.preventDefault();
 
@@ -25,10 +25,10 @@ const PhotoCommentsForm = ({id, setComments, single}) => {
         const token = window.localStorage.getItem('token');
         const { url, options } = COMMENT_POST(id, field.values, token);
 
-        const {json, resp} =  await request(url, options);
-    
+        const { json, resp } = await request(url, options);
+
         if (resp.ok) {
-            field.values.comment = '';
+            field.resetField('comment');
             setComments((comments) => [...comments, json]);
         }
 
@@ -58,7 +58,7 @@ const PhotoCommentsForm = ({id, setComments, single}) => {
             {error &&
                 <Error error={error} />
             }
-    
+
         </form>
 
     )

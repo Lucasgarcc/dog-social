@@ -2,9 +2,9 @@ import React from 'react';
 import styles from './PhotoContent.module.css';
 import { Link } from 'react-router-dom';
 import PhotoComments from '../PhotoComments/PhotoComments';
-import { UserContext } from '../../../../contexts/UserContext';
+import { UserContext } from '../../../../../../contexts/UserContext';
 import PhotoDelete from '../PhotoDelete/PhotoDelete';
-import Skeletion from '../../../Helpers/Skeleton/Skeletion';
+import Skeletion from '../../../../../Helpers/Skeleton/Skeletion';
 
 const PhotoContent = ({ data, single }) => {
 
@@ -14,7 +14,7 @@ const PhotoContent = ({ data, single }) => {
 
     return (
 
-        <div  className={`${styles.photo} ${single ? styles.single : ''}`}>
+        <div className={`${styles.photo} ${single ? styles.single : ''}`}>
 
             <div className={styles.img}>
                 <Skeletion alt={photo.title} src={photo.src} />
@@ -31,7 +31,7 @@ const PhotoContent = ({ data, single }) => {
                                 <Link to={`/profile/${photo.author}`}>
                                     @{photo.author}
                                 </Link>
-                            )      
+                            )
                         }
 
                         <span className={styles.views}>
@@ -48,8 +48,8 @@ const PhotoContent = ({ data, single }) => {
                             {photo.peso} kg
                         </li>
                         <li>
-                            {photo.idade >= 1 
-                                ? photo.idade + ' anos' 
+                            {photo.idade >= 1
+                                ? photo.idade + ' anos'
                                 : photo.idade + ' ano'
                             }
                         </li>
@@ -58,10 +58,10 @@ const PhotoContent = ({ data, single }) => {
                 </div>
             </div>
 
-            <PhotoComments 
-                id={photo.id} 
+            <PhotoComments
+                id={photo.id}
                 comments={comments}
-                single={true} 
+                single={true}
             />
         </div>
 

@@ -28,8 +28,8 @@ const UserHeaderNav = () => {
      * @description Função de sair
      */
     const logout = () => {
-       userLogout();
-       navigate('/login');
+        userLogout();
+        navigate('/login');
     }
 
     return ( 
@@ -40,10 +40,10 @@ const UserHeaderNav = () => {
                     className={`
                     ${styles.mobileButton} 
                     ${
-                        mobileMenu 
-                        ? styles.mobileBtnActive 
-                        : ''
-                     }`}
+                mobileMenu 
+                    ? styles.mobileBtnActive 
+                    : ''
+                }`}
                     onClick={() => setMobileMenu(!mobileMenu)}
                 />
             )}                         

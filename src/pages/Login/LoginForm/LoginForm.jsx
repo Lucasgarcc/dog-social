@@ -1,11 +1,11 @@
 import React, { use } from 'react'
 import styles from './LoginForm.module.css';
 import { Link } from 'react-router-dom';
-import Input from '../../../components/ui/Input/Input.jsx';
-import Button from '../../../components/ui/Button/Button.jsx';
+import Input from '../../../components/Layout/Header/ui/Input/Input';
+import Button from '../../../components/Layout/Header/ui/Button/Button';
 import Error from '../../../components/Helpers/Error/Error.jsx';
-import  useForm from '../../../hooks/useForm/useForm.jsx';
-import  { UserContext }  from '../../../contexts/UserContext.jsx';
+import useForm from '../../../hooks/useForm/useForm.jsx';
+import { UserContext } from '../../../contexts/UserContext.jsx';
 
 const LoginForm = () => {
 
@@ -28,23 +28,23 @@ const LoginForm = () => {
         e.preventDefault();
 
         if (!fields.validateAll()) return;
-    
+
         userLogin(fields.values.username, fields.values.password);
-        
+
     };
 
     return (
         <section className={`animeLeft`} >
-            
-            <h1 className='title'>Login</h1> 
-            
+
+            <h1 className='title'>Login</h1>
+
             <form onSubmit={handleSubmit}>
-                <Input 
+                <Input
                     id={'username'}
                     label={'Usuário'}
                     name={'username'}
-                    type="text" 
-                    placeholder={'Usuário ou Email'} 
+                    type="text"
+                    placeholder={'Usuário ou Email'}
                     {...fields.username}
                 />
                 <Input
@@ -56,8 +56,8 @@ const LoginForm = () => {
                     {...fields.password}
                 />
 
-                {loading ?  (
-                    <Button 
+                {loading ? (
+                    <Button
                         color='--color-primary'
                         hoverColor='--color-primary-hover'
                         focusColor='-color-primary-focus'
@@ -66,16 +66,16 @@ const LoginForm = () => {
                         disabled
                     />
                 ) : (
-                    <Button 
+                    <Button
                         color='--color-primary'
                         hoverColor='--color-primary-hover'
                         focusColor='-color-primary-focus'
-                        type={'submit'} 
+                        type={'submit'}
                         label={'Entrar'}
                     />
                 )}
 
-                {error && 
+                {error &&
                     <Error error={error} />
                 }
 
@@ -85,14 +85,14 @@ const LoginForm = () => {
                 className={styles.resetpassword}
             >
                 Esqueceu a Senha?
-            </Link> 
+            </Link>
 
             <div className={styles.register}>
                 <h2 className={styles.subtitle}>Cadastre-se</h2>
                 <p className={styles.text}>Ainda não possui conta? Cadastre-se no site.</p>
             </div>
- 
-            <Link   to="/login/create" >
+
+            <Link to="/login/create" >
                 <Button
                     color='--color-primary'
                     hoverColor='--color-primary-hover'
@@ -101,7 +101,7 @@ const LoginForm = () => {
                     type={'button'}
                 />
             </Link>
-  
+
         </section>
     )
 }
