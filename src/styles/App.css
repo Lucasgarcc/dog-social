@@ -159,10 +159,9 @@ a {
 .main {
   flex: 2;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .VictoryContainer {
-  height: inital !important;
+  height: initial !important;
 }

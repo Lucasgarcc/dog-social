@@ -4,18 +4,18 @@ import useFetch from '../../../hooks/useFetch/useFetch';
 import { PHOTO_GET } from '../../../routes/endpoints/endpoints';
 import Error from '../../Helpers/Error/Error';
 import Loading from '../../Helpers/Loading/Loading';
-import PhotoContent from '../../ui/Photo/PhotoContent/PhotoContent';
+import PhotoContent from '../../Layout/Header/ui/Photo/PhotoContent/PhotoContent';
 
-const FeedModal = ({ photo, setModalPhoto}) => {
-    
+const FeedModal = ({ photo, setModalPhoto }) => {
+
     const { data, loading, error, request } = useFetch();
 
-    React.useEffect(() =>{
+    React.useEffect(() => {
 
         const { url, options } = PHOTO_GET(photo.id);
         request(url, options);
-        
-    },[photo, request]);
+
+    }, [photo, request]);
 
     const handleOutsideClick = (e) => {
 
@@ -25,10 +25,10 @@ const FeedModal = ({ photo, setModalPhoto}) => {
     }
 
     return (
-    
+
         <div className={styles.modal} onClick={handleOutsideClick}>
 
-            {error && 
+            {error &&
                 <Error error={error} />
             }
 
@@ -36,12 +36,12 @@ const FeedModal = ({ photo, setModalPhoto}) => {
                 <Loading />
             }
 
-            {data &&  
+            {data &&
                 <PhotoContent data={data} />
             }
         </div>
-    
+
     )
-}
+};
 
 export default FeedModal

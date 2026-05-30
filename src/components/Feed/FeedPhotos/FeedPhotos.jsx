@@ -1,8 +1,9 @@
 import React from 'react';
 import styles from './FeedPhotos.module.css';
 import FeedPhotosItem from '../FeedPhotosItem/FeedPhotosItem';
-import useFetch from '../../.././hooks/useFetch/useFetch';
+import useFetch from '../../../hooks/useFetch/useFetch';
 import { PHOTOS_GET } from '../../../routes/endpoints/endpoints';
+import Error from '../../Helpers/Error/Error';
 import Loading from '../../Helpers/Loading/Loading';
 
 const FeedPhotos = ({ user , page, setModalPhoto, setInfinite, setHasPhotos}) => {
@@ -21,13 +22,13 @@ const FeedPhotos = ({ user , page, setModalPhoto, setInfinite, setHasPhotos}) =>
             });
 
 
-            const { response, json } = await request(url, options);
+            const { resp, json } = await request(url, options);
 
             if ( json.length === 0 ) {
                 setHasPhotos(false);
             }
  
-            if (response && response.resp.ok && json.length < total) {
+            if (resp && resp.ok && json.length < total) {
 
                 setInfinite(false);
 
@@ -37,7 +38,7 @@ const FeedPhotos = ({ user , page, setModalPhoto, setInfinite, setHasPhotos}) =>
 
         fetchPhotos();
 
-    },[request, user, page, setInfinite]);
+    },[request, user, page, setInfinite, setHasPhotos]);
 
     if (error)  return <Error error={error} />;
     if (loading) return <Loading />;

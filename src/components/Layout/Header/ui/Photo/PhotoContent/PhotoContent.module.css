@@ -38,7 +38,7 @@
 
 .single .img {
     grid-row: 1;
-    border-radius: 1 rem;
+    border-radius: 1rem;
     overflow: hidden;
 }
 
@@ -77,7 +77,7 @@
     display: inline-block;
     width: 16px;
     height: 10px;
-    background: url('../../../../assets/img/visualizacao-black.svg');
+    background: url('../../../../../../assets/img/visualizacao-black.svg');
 }
 
 .attributes {

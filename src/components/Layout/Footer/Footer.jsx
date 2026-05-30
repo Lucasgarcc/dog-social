@@ -4,15 +4,15 @@ import DogLogo from '../../../assets/img/dog.svg?react'
 
 const Footer = () => {
 
-	return (
+    return (
 
-		<div className={styles.footer}>
+        <div className={styles.footer}>
 
-			<DogLogo />
+            <DogLogo />
 
-			<p>&copy; Dogs Garcia 2026 Todos os direitos reservados.</p>
-		</div>
-	)
+            <p>&copy; Dogs Garcia 2026 Todos os direitos reservados.</p>
+        </div>
+    )
 }
 
 export default Footer;

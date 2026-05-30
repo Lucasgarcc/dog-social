@@ -137,9 +137,9 @@ const UserStorage = ({ children }) => {
 
             const data = await tokenRes.json();
 
-           if (!tokenRes.ok)  {
+            if (!tokenRes.ok)  {
                 throw new Error(data.message || 'Erro ao realizar o login');
-           }
+            }
 
             const { token } = data;
             window.localStorage.setItem('token', token);

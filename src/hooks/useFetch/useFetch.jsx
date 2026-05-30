@@ -35,7 +35,6 @@ const useFetch = () => {
             json = await resp.json();
 
             if (!resp.ok) {
-
                 throw new Error(json.message);
             }
 
@@ -46,16 +45,14 @@ const useFetch = () => {
             setError(err.message);
 
         }
-        finally {
 
-            setData(json);
-            setLoading(false);
+        setData(json);
+        setLoading(false);
 
-            return {
-                resp,
-                json
-            }
-        }
+        return {
+            resp,
+            json
+        };
 
     }, [])
 
