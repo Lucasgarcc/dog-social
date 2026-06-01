@@ -37,7 +37,7 @@ const FeedModal = ({ photo, setModalPhoto }) => {
             }
 
             {data &&
-                <PhotoContent data={data} />
+                <PhotoContent data={data} setModalPhoto={setModalPhoto}/>
             }
         </div>
 

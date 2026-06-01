@@ -9,6 +9,44 @@
     opacity: 0;
     transform: scale(.8);
     animation:  scaleUp .3s forwards;
+    position: relative;
+    z-index: 3;
+}
+
+.button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 4;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: .55rem 1rem;
+    border: 0;
+    border-radius: .5rem;
+    background: linear-gradient(135deg, var(--color-danger), var(--color-danger-hover));
+    color: #fff;
+    font-family: var(--type-first);
+    font-size: .675rem;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, .16);
+    cursor: pointer;
+    transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+
+.button:hover,
+.button:focus-visible {
+    background: var(--color-danger-hover);
+    outline: none;
+    transform: translateY(-1px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, .2);
+    filter: brightness(1.03);
+}
+
+.button:active {
+    transform: translateY(0);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, .14);
 }
 
 .single.photo {
@@ -26,6 +64,11 @@
 
 .details {
     padding:  2rem 2rem 1rem 2rem;
+}
+
+.header {
+    position: relative;
+    padding-top: 3.25rem;
 }
 
 .single .details {

@@ -158,7 +158,10 @@ a {
 
 .main {
   flex: 2;
-  align-items: flex-start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5rem;
 }
 
 .VictoryContainer {
