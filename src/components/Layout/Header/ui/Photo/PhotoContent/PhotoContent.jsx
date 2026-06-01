@@ -6,7 +6,7 @@ import { UserContext } from '../../../../../../contexts/UserContext';
 import PhotoDelete from '../PhotoDelete/PhotoDelete';
 import Skeletion from '../../../../../Helpers/Skeleton/Skeletion';
 
-const PhotoContent = ({ data, single }) => {
+const PhotoContent = ({ data, single, setModalPhoto }) => {
 
 
     const user = React.useContext(UserContext);
@@ -21,7 +21,16 @@ const PhotoContent = ({ data, single }) => {
             </div>
 
             <div className={styles.details}>
-                <div>
+                <div className={styles.header}>
+                    {setModalPhoto && (
+                        <button
+                            type="button"
+                            onClick={() => setModalPhoto(null)}
+                            className={styles.button}
+                        >
+                          X
+                        </button>
+                    )}
                     <p className={styles.author}>
 
                         {user.data && user.data.username == photo.author
@@ -38,6 +47,7 @@ const PhotoContent = ({ data, single }) => {
                             {photo.acessos}
                         </span>
                     </p>
+
                     <h1 className='title'>
                         <Link to={`/photo/${photo.id}`}>
                             {photo.title}
