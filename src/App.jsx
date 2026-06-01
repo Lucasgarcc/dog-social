@@ -7,91 +7,91 @@ import Footer from './components/Layout/Footer/Footer';
 import Login from './pages/Login/Login.jsx';
 import User from './pages/User/User.jsx';
 import ProtectedRoute from './components/Helpers/ProtectedRoute/ProtectedRoute.jsx';
-import Photo from './components/ui/Photo/Photo.jsx';
+import Photo from './components/Layout/Header/ui/Photo/Photo.jsx';
 import UserProfile from './pages/User/UserProfile/UserProfile.jsx';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage.jsx';
 
 function App() {
 
-	React.useEffect(() => {
+    React.useEffect(() => {
 
-		const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-		const favicon = document.querySelector('link[rel="icon"]');
+        const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        const favicon = document.querySelector('link[rel="icon"]');
 
-		const handleThemeChange = (e) => {
+        const handleThemeChange = (e) => {
 
-			if (e.matches) {
+            if (e.matches) {
 
-				// --- MODO ESCURO ---
-				if (favicon) favicon.href = '/favicon-light.svg'; 
+                // --- MODO ESCURO ---
+                if (favicon) favicon.href = '/favicon-light.svg';
 
-			} else {
+            } else {
 
-				// --- MODO CLARO ---
-				if (favicon) favicon.href = '/favicon.svg';
-			}
-		};
+                // --- MODO CLARO ---
+                if (favicon) favicon.href = '/favicon.svg';
+            }
+        };
 
-		// Executa ao montar o componente
-		handleThemeChange(darkModeMediaQuery);
+        // Executa ao montar o componente
+        handleThemeChange(darkModeMediaQuery);
 
-		darkModeMediaQuery.addEventListener('change', handleThemeChange);
+        darkModeMediaQuery.addEventListener('change', handleThemeChange);
 
-		return () => darkModeMediaQuery.removeEventListener('change', handleThemeChange);
-	
-	}, []);
+        return () => darkModeMediaQuery.removeEventListener('change', handleThemeChange);
 
-	return (
+    }, []);
 
-		<div className='App'>	
+    return (
 
-			{/* Header */}
-			<Header />
-	
-			<main className='main'>
-				<Routes>
-					<Route
-						path='/'
-						element={<Home />}
-					/>
-					<Route
-						path='login/*'
-						element={<Login />}
-					/>
-					<Route
-						path='account/*'
-						element={
-							<ProtectedRoute>
-								<User />
-							</ProtectedRoute>
-						}
-					/>
-					<Route 
-						path='photo/:id' 
-						element={ 
-							<Photo />
-						}
-					/>
-					<Route
-						path='profile/:user'
-						element={
-							<UserProfile />
-						}
-					/>
-					<Route 
-						path='*'
-						element={
-							<NotFoundPage />
-						}
-					/>
-				</Routes>
+        <div className='App'>
 
-	
-			</main>	
-			{/* Footer */}
-			<Footer />
-		</div>
-	)
+            {/* Header */}
+            <Header />
+
+            <main className='main'>
+                <Routes>
+                    <Route
+                        path='/'
+                        element={<Home />}
+                    />
+                    <Route
+                        path='login/*'
+                        element={<Login />}
+                    />
+                    <Route
+                        path='account/*'
+                        element={
+                            <ProtectedRoute>
+                                <User />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='photo/:id'
+                        element={
+                            <Photo />
+                        }
+                    />
+                    <Route
+                        path='profile/:user'
+                        element={
+                            <UserProfile />
+                        }
+                    />
+                    <Route
+                        path='*'
+                        element={
+                            <NotFoundPage />
+                        }
+                    />
+                </Routes>
+
+
+            </main>
+            {/* Footer */}
+            <Footer />
+        </div>
+    )
 }
 
 export default App; 

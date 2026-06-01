@@ -11,47 +11,45 @@ import Head from '../../components/Helpers/Head/Head.jsx';
 
 const User = () => {
 
-	const { data } = React.useContext(UserContext);
+    const { data } = React.useContext(UserContext);
 
-	return (
+    return (
 
-		<section className='container'>
+        <section className='container'>
 
-			{/* Head navegador */}
-			<Head
-				title={'Minha Conta'} 
-			/>
-
-			{/* Header */}
-			<UserHeader />
-
-			<Routes>
+            {/* Head navegador */}
+            <Head
+                title={'Minha Conta'} 
+            />
+            {/* Header */}
+            <UserHeader />
+            <Routes>
 				
-				<Route 
-					path="/"
-					element={<Feed user={data.id} />} 
+                <Route 
+                    path="/"
+                    element={<Feed user={data.id} />} 
 					
-				/>
-				<Route
-					path="statistics"
-					element={<UserStatistics />}
-				/>
-				<Route
-					path="posted"
-					element={<UserPhotoPost />}
-				/>
-				<Route
-					path='*'
-					element={
-						<NotFoundPage />
-					}
-				/>
+                />
+                <Route
+                    path="statistics"
+                    element={<UserStatistics />}
+                />
+                <Route
+                    path="posted"
+                    element={<UserPhotoPost />}
+                />
+                <Route
+                    path='*'
+                    element={
+                        <NotFoundPage />
+                    }
+                />
 		
-			</Routes>
+            </Routes>
 
-		</section>
+        </section>
 
-	)
+    )
 }
 
 export default User;

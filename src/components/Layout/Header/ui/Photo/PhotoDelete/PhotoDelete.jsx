@@ -1,13 +1,13 @@
 import React from 'react';
 import styles from './PhotoDelete.module.css';
-import { PHOTO_DELETE } from '../../../../routes/endpoints/endpoints';
-import useFetch from '../../../../hooks/useFetch/useFetch';
-import Alert from '../../../Helpers/Alert/Alert';
+import { PHOTO_DELETE } from '../../../../../../routes/endpoints/endpoints';
+import useFetch from '../../../../../../hooks/useFetch/useFetch';
+import Alert from '../../../../../Helpers/Alert/Alert';
 
 const PhotoDelete = ({ id }) => {
 
     const { loading, request } = useFetch();
-    const [ showAlert, setShowAlert ] = React.useState(false);
+    const [showAlert, setShowAlert] = React.useState(false);
 
     const confirmDelete = async (e) => {
 
@@ -28,7 +28,7 @@ const PhotoDelete = ({ id }) => {
     return (
 
         <div className={styles.delete}>
-    
+
             <button
                 className={styles.button}
                 onClick={() => setShowAlert(true)}
@@ -43,7 +43,7 @@ const PhotoDelete = ({ id }) => {
                     onClose={() => setShowAlert(false)}
                 />
             )}
-    
+
         </div>
 
     );

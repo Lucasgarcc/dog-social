@@ -24,10 +24,10 @@ const request = ({route, method, body, token, cache}) => {
 
     if (body) {
         if (body instanceof FormData) {
-          options.body = body;
+            options.body = body;
         } else {
-          options.headers['Content-Type'] = 'application/json';
-          options.body = JSON.stringify(body);
+            options.headers['Content-Type'] = 'application/json';
+            options.body = JSON.stringify(body);
         }
     }
 
@@ -71,9 +71,9 @@ export const USER_GET = (token) => {
  */
 export const TOKEN_VALIDATION_POST = (token) => {
     return request({
-      route: 'jwt-auth/v1/token/validate',
-      method: 'POST',
-      token,
+        route: 'jwt-auth/v1/token/validate',
+        method: 'POST',
+        token,
     });
 } 
 

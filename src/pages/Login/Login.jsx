@@ -11,49 +11,49 @@ import Head from '../../components/Helpers/Head/Head.jsx';
 
 const Login = () => {
 
-	const { login } = React.useContext(UserContext);
+    const { login } = React.useContext(UserContext);
 
-	/**
+    /**
 	 * @description Redireciona para a página de conta se o usuário já estiver logado
 	 */
-	if (login) return <Navigate to='/account' />;
+    if (login) return <Navigate to='/account' />;
 	
-	return (
-		<section className={styles.loginContainer} >
+    return (
+        <section className={styles.loginContainer} >
 	
-			<Head
-				title={'Login'} 
-			/>
+            <Head
+                title={'Login'} 
+            />
 
-			<div className={styles.forms}>
-				<Routes>
-					<Route
-						path="/"
-						element={<LoginForm />}
-					/>
-					<Route
-						path="/create"
-						element={<LoginCreate />}
-					/>
-					<Route
-						path="/password-lost"
-						element={<LoginPasswordLost />}
-					/>
-					<Route
-						path="/resetar"
-						element={<LoginPasswordReset />}
-					/>
-					<Route
-						path='*'
-						element={
-							<NotFoundPage />
-						}
-					/>
-				</Routes>
-			</div>
-		</section>
+            <div className={styles.forms}>
+                <Routes>
+                    <Route
+                        path="/"
+                        element={<LoginForm />}
+                    />
+                    <Route
+                        path="/create"
+                        element={<LoginCreate />}
+                    />
+                    <Route
+                        path="/password-lost"
+                        element={<LoginPasswordLost />}
+                    />
+                    <Route
+                        path="/resetar"
+                        element={<LoginPasswordReset />}
+                    />
+                    <Route
+                        path='*'
+                        element={
+                            <NotFoundPage />
+                        }
+                    />
+                </Routes>
+            </div>
+        </section>
 		
-	)
+    )
 }
 
 export default Login

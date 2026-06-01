@@ -1,6 +1,6 @@
 import React from 'react';
-import Input from '../../../components/ui/Input/Input.jsx';
-import Button from '../../../components/ui/Button/Button.jsx';
+import Input from '../../../components/Layout/Header/ui/Input/Input';
+import Button from '../../../components/Layout/Header/ui/Button/Button';
 import useForm from '../../../hooks/useForm/useForm.jsx';
 import useFetch from '../../../hooks/useFetch/useFetch.jsx';
 import Error from '../../../components/Helpers/Error/Error.jsx';
@@ -13,23 +13,23 @@ const LoginPasswordLost = () => {
     const field = useForm({
         login: 'login'
     });
-    const {error, loading, request } = useFetch();
+    const { error, loading, request } = useFetch();
     const [successMessage, setSuccessMessage] = React.useState(null);
 
-    const handlePasswordLost = async (e) =>{
+    const handlePasswordLost = async (e) => {
 
         e.preventDefault();
 
-        if(!field.validateAll()) return;
+        if (!field.validateAll()) return;
 
         const { url, options } = PASSWORD_LOST({
             login: field.login.value,
             url: window.location.href.replace('password-lost', 'resetar')
         });
 
-        const {json} = await request(url, options);
+        const { json } = await request(url, options);
 
-        if  (json) {
+        if (json) {
             setSuccessMessage(json);
         }
 
@@ -39,18 +39,18 @@ const LoginPasswordLost = () => {
 
         <section>
             <Head
-                title={'Recuperar Senha'} 
+                title={'Recuperar Senha'}
             />
             <h1 className='title'>Perdeu a senha?</h1>
 
             <form onSubmit={handlePasswordLost}>
-                
-                <Input 
+
+                <Input
                     id={'email'}
                     label={'Email / Usuário'}
                     name={'email'}
-                    type="text" 
-                    placeholder={'Digite seu email'} 
+                    type="text"
+                    placeholder={'Digite seu email'}
                     {...field.login}
                 />
 
@@ -62,8 +62,8 @@ const LoginPasswordLost = () => {
                         label='Enviando...'
                         disabled
                         type={'submit'}
-                    /> 
-                    ): (
+                    />
+                ) : (
                     <Button
                         color='--color-primary'
                         hoverColor='--color-primary-hover'
@@ -74,12 +74,12 @@ const LoginPasswordLost = () => {
                 )}
 
             </form>
-      
-            {successMessage  && !loading && (
-                <SweelAlert 
+
+            {successMessage && !loading && (
+                <SweelAlert
                     type='success'
                     title='Sucesso'
-                    text= {successMessage}
+                    text={successMessage}
                 />
             )}
             <Error error={error} />

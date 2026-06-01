@@ -5,17 +5,17 @@ import Head from '../../components/Helpers/Head/Head';
 
 const Home = () => {
 
-	return (
+    return (
 
-		<section className={`${styles.home} container`}>
-			<Head
-				title={'Fotos'}
-				description={'Home do site Dogs, com o feed de fotos.'}
-			/>
-			<Feed />
+        <section className={`${styles.home} container`}>
+            <Head
+                title={'Fotos'}
+                description={'Home do site Dogs, com o feed de fotos.'}
+            />
+            <Feed />
 
-		</section>
-	)
+        </section>
+    )
 }
 
 export default Home

@@ -11,7 +11,7 @@ const Textarea = ({
     onBlur,
     onKeyDown
 
-    }) => {
+}) => {
     
     return (
 
